@@ -6,6 +6,7 @@ import AllArticlesPage from "../pages/allArticles/AllArticlesPage";
 import PostArticlePage from "../pages/postArticle/PostArticlePage";
 import MyArticlesPage from "../pages/myArticles/MyArticlesPage";
 import AboutUsPage from "../pages/about/AboutUsPage";
+import RegisterPage from "../pages/register/RegisterPage";
 
 const router = createBrowserRouter([
   {
@@ -36,6 +37,10 @@ const router = createBrowserRouter([
       {
         path: "/login",
         element: <Login />,
+      },
+      {
+        path: "/register",
+        element: <RegisterPage />,
       },
     ],
   },
