@@ -7,6 +7,7 @@ import PostArticlePage from "../pages/postArticle/PostArticlePage";
 import MyArticlesPage from "../pages/myArticles/MyArticlesPage";
 import AboutUsPage from "../pages/about/AboutUsPage";
 import RegisterPage from "../pages/register/RegisterPage";
+import ArticleDetails from "../pages/articleDetails/ArticleDetails";
 
 const router = createBrowserRouter([
   {
@@ -21,6 +22,10 @@ const router = createBrowserRouter([
       {
         path: "/all-articles",
         element: <AllArticlesPage />,
+      },
+      {
+        path: "/all-articles/:id",
+        element: <ArticleDetails />,
       },
       {
         path: "/my-articles",
