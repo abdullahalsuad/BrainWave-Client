@@ -8,11 +8,13 @@ import MyArticlesPage from "../pages/myArticles/MyArticlesPage";
 import AboutUsPage from "../pages/about/AboutUsPage";
 import RegisterPage from "../pages/register/RegisterPage";
 import ArticleDetails from "../pages/articleDetails/ArticleDetails";
+import NotFound from "../pages/NotFound";
 
 const router = createBrowserRouter([
   {
     path: "/",
     element: <App />,
+    errorElement: <NotFound />,
 
     children: [
       {

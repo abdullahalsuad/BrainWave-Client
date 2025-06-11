@@ -7,6 +7,7 @@ import { IoDocumentTextOutline } from "react-icons/io5";
 import { IoIosAddCircleOutline, IoIosLogOut } from "react-icons/io";
 import { CiDark, CiLight } from "react-icons/ci";
 import { ThemeContext } from "../../context/ThemeContext";
+import { BookOpen } from "lucide-react";
 
 const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -34,11 +35,12 @@ const Navbar = () => {
   };
 
   return (
-    <nav className="fixed top-0 left-0 w-full bg-white dark:bg-gray-900 shadow-lg z-50 transition-colors duration-300">
+    <nav className="fixed top-0 left-0 w-full bg-white dark:bg-gray-800 shadow-lg z-50 transition-colors duration-300">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between h-16">
           {/* Logo */}
-          <div className="flex items-center">
+          <div className="flex items-center justify-center">
+            <BookOpen className="h-8 w-8" />{" "}
             <NavLink
               to="/"
               className="text-2xl font-bold text-blue-950 dark:text-blue-400 tracking-tight"
