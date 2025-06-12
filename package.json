@@ -12,6 +12,7 @@
   "dependencies": {
     "@tailwindcss/vite": "^4.1.4",
     "aos": "^2.3.4",
+    "axios": "^1.9.0",
     "firebase": "^11.6.1",
     "i": "^0.3.7",
     "jodit": "^4.6.2",

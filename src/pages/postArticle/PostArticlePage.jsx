@@ -1,13 +1,32 @@
-import { useState } from "react";
+import { use, useState } from "react";
 
 import PostArticleForm from "../../components/postAddArticle/PostArticleForm";
+import { toast } from "react-toastify";
+import { AuthContext } from "../../context/AuthProvider";
+import useAxiosSecure from "../../hooks/useAxiosSecure";
 
 const PostArticlePage = () => {
-  const [tags, setTags] = useState(["hello", "tech"]);
+  const [tags, setTags] = useState([]);
   const [newTag, setNewTag] = useState("");
+  const [isLoading, setIsLoading] = useState(false);
+
+  const { user } = use(AuthContext);
+  const axiosSecure = useAxiosSecure();
+
+  const displayName = user?.displayName;
+  const creatorEmail = user?.email;
+  const profilePhotoURL = user?.photoURL;
 
   // add tag
   const handleAddTag = () => {
+    if (tags.includes(newTag.trim())) {
+      toast.warning("Already Added");
+    }
+
+    if (newTag === "") {
+      toast.warning("Empty Tag");
+    }
+
     if (newTag.trim() && !tags.includes(newTag.trim())) {
       setTags([...tags, newTag.trim()]);
       setNewTag("");
@@ -19,6 +38,42 @@ const PostArticlePage = () => {
     setTags(tags.filter((tag) => tag !== tagToRemove));
   };
 
+  // handle submit
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    setIsLoading(true);
+
+    // Collect user input values from the form elements
+    const form = e.target;
+    const formData = new FormData(form);
+    const formValues = Object.fromEntries(formData.entries());
+
+    const articleData = {
+      ...formValues,
+      profilePhotoURL: profilePhotoURL,
+      articleTags: tags,
+    };
+
+    // send to backend
+    try {
+      const response = await axiosSecure.post("articles", articleData);
+
+      if (!response.data._id) {
+        throw new Error(`Server responded with status: ${response.status}`);
+      }
+
+      if (response.data._id) {
+        toast.success("Article added successfully!");
+        // UI update
+        e.target.reset();
+        setTags([]);
+        setIsLoading(false);
+      }
+    } catch (err) {
+      console.log("Error from sending data to the server", err);
+    }
+  };
+
   return (
     <div className="w-10/12 mx-auto p-6 mb-60 mt-20">
       <h1 className="text-2xl font-bold mb-1">Create New Article</h1>
@@ -27,13 +82,18 @@ const PostArticlePage = () => {
       </p>
 
       {/* Main Content Grid */}
-      <PostArticleForm
-        handleAddTag={handleAddTag}
-        handleRemoveTag={handleRemoveTag}
-        tags={tags}
-        newTag={newTag}
-        setNewTag={setNewTag}
-      />
+      <form onSubmit={handleSubmit}>
+        <PostArticleForm
+          handleAddTag={handleAddTag}
+          handleRemoveTag={handleRemoveTag}
+          tags={tags}
+          newTag={newTag}
+          setNewTag={setNewTag}
+          displayName={displayName}
+          creatorEmail={creatorEmail}
+          isLoading={isLoading}
+        />
+      </form>
     </div>
   );
 };

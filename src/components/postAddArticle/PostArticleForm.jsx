@@ -8,6 +8,9 @@ const PostArticleForm = ({
   tags,
   newTag,
   setNewTag,
+  creatorEmail,
+  displayName,
+  isLoading,
 }) => {
   // const [content, setContent] = useState("");
   // console.log(content);
@@ -26,8 +29,10 @@ const PostArticleForm = ({
               Title *
             </label>
             <input
+              required
               type="text"
               id="title"
+              name="articleTitle"
               placeholder="Enter article title..."
               className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-teal-400 dark:border-gray-700 dark:bg-gray-900 dark:text-white"
             />
@@ -38,8 +43,10 @@ const PostArticleForm = ({
               Thumbnail URL
             </label>
             <input
-              type="text"
+              required
+              type="url"
               id="thumbnail"
+              name="articleThumbnail"
               className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-teal-400 dark:border-gray-700 dark:bg-gray-900 dark:text-white"
             />
           </div>
@@ -49,7 +56,9 @@ const PostArticleForm = ({
               Content *
             </label>
             <textarea
+              required
               id="content"
+              name="articleContent"
               placeholder="Write your article content here..."
               rows="10"
               className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-teal-400 dark:border-gray-700 dark:bg-gray-900 dark:text-white"
@@ -84,8 +93,9 @@ const PostArticleForm = ({
                 <input
                   type="text"
                   id="email"
+                  name="creatorEmail"
                   readOnly
-                  value="user@example.com"
+                  value={creatorEmail}
                   className="w-full px-3 py-2 border border-gray-300 rounded-md bg-gray-100 text-gray-800  select-none dark:border-gray-700 dark:bg-gray-900 dark:text-white focus:outline-none cursor-not-allowed"
                 />
               </div>
@@ -98,8 +108,9 @@ const PostArticleForm = ({
                 <input
                   type="text"
                   id="username"
+                  name="displayName"
                   readOnly
-                  value="username123"
+                  value={displayName}
                   className="w-full px-3 py-2 border border-gray-300 rounded-md bg-gray-100 text-gray-800  select-none dark:border-gray-700 dark:bg-gray-900 dark:text-white focus:outline-none cursor-not-allowed"
                 />
               </div>
@@ -120,13 +131,27 @@ const PostArticleForm = ({
               </label>
               <div className="relative">
                 <select
+                  required
                   id="category"
                   className="appearance-none w-full px-3 py-2 border border-gray-300 rounded-md pr-10 focus:outline-none focus:ring-2 focus:ring-teal-400 dark:border-gray-700 dark:bg-gray-900 dark:text-white cursor-pointer"
                 >
-                  <option value="Health">Health</option>
-                  <option value="Technology">Technology</option>
-                  <option value="Business">Business</option>
-                  <option value="Education">Education</option>
+                  <option value="">Select Category</option>
+                  <option value="Artificial-Intelligence">
+                    Artificial Intelligence
+                  </option>
+                  <option value="Cybersecurity">Cybersecurity</option>
+                  <option value="Cloud-Computing">Cloud Computing</option>
+                  <option value="Project-Based">Project Based</option>
+                  <option value="Internet-of-Things">Internet of Things</option>
+                  <option value="Blockchain-Technology">
+                    Blockchain Technology
+                  </option>
+                  <option value="Augmented-Reality">Augmented Reality</option>
+                  <option value="Robotics">Robotics</option>
+                  <option value="Software-Development">
+                    Software Development
+                  </option>
+                  <option value="Quantum-Computing">Quantum Computing</option>
                 </select>
                 <div className="pointer-events-none absolute inset-y-0 right-3 flex items-center text-gray-400 dark:text-gray-300">
                   <svg
@@ -157,11 +182,12 @@ const PostArticleForm = ({
                   onChange={(e) => setNewTag(e.target.value)}
                   onKeyPress={(e) => e.key === "Enter" && handleAddTag()}
                   placeholder="Add tag..."
-                  className="flex-1 px-3 py-2 border border-gray-300 rounded-l-md focus:outline-none focus:ring-2 focus:ring-teal-400 dark:border-gray-700 dark:bg-gray-900 dark:text-white"
+                  className="flex-1 px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-teal-400 dark:border-gray-700 dark:bg-gray-900 dark:text-white"
                 />
                 <button
+                  type="button"
                   onClick={handleAddTag}
-                  className="px-4 py-2 bg-gray-100 border border-gray-300 rounded-r-md hover:bg-gray-200 dark:bg-gray-700 dark:hover:bg-gray-600 dark:text-white transition duration-200 flex items-center gap-1 cursor-pointer"
+                  className="px-4 py-2 bg-gray-100 border border-gray-300 rounded-md hover:bg-gray-200 dark:bg-gray-700 dark:hover:bg-gray-600 dark:text-white transition duration-200 flex items-center gap-1 cursor-pointer ml-4"
                 >
                   <IoMdAdd />
                   Add
@@ -192,8 +218,11 @@ const PostArticleForm = ({
               Actions
             </h2>
             <div className="flex gap-3">
-              <button className="px-4 py-2 bg-teal-600 text-white rounded-md hover:bg-teal-700 font-medium cursor-pointer">
-                Publish Article
+              <button
+                type="submit"
+                className="px-4 py-2 bg-teal-600 text-white rounded-md hover:bg-teal-700 font-medium cursor-pointer"
+              >
+                {isLoading ? "⏳ Publishing..." : "Publish Article"}
               </button>
             </div>
           </div>

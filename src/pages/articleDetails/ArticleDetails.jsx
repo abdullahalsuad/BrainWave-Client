@@ -1,204 +1,129 @@
 import React from "react";
-import { FaShareAlt, FaHeart, FaComment, FaUser } from "react-icons/fa";
+import {
+  FaShareAlt,
+  FaHeart,
+  FaComment,
+  FaUser,
+  FaLongArrowAltLeft,
+} from "react-icons/fa";
+import { Link } from "react-router";
 
 const ArticleDetails = () => {
   return (
     <>
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        {/* Header */}
-        <div className="mb-8">
-          <p className="text-sm text-gray-500 dark:text-gray-400 mb-4 flex items-center space-x-2">
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              className="h-4 w-4 inline-block mr-1"
-              viewBox="0 0 20 20"
-              fill="currentColor"
-            >
-              <path
-                fillRule="evenodd"
-                d="M9.707 12.707l-.707.707L8 8.707l-1.707 1.707L6.293 8l2-2 1.414 1.414L9.828 5l.707.707L12 6.293l-1.707-1.707L10.586 5z"
-                clipRule="evenodd"
-              />
-            </svg>
-            Back to Articles
-          </p>
-          <div className="flex items-center justify-between mb-4">
-            <div>
-              <span className="bg-blue-500 text-white px-2 py-1 rounded-md text-xs">
-                Technology
-              </span>
-              <span className="ml-2 text-gray-500 dark:text-gray-400">
-                8 min read
-              </span>
-            </div>
-          </div>
-          <h1 className="text-3xl font-bold mb-2">
-            The Future of Artificial Intelligence in Education
-          </h1>
-          <div className="flex items-center space-x-4 mb-4">
-            <div className="flex items-center">
-              <div className="w-8 h-8 bg-gray-300 rounded-full"></div>
-              <span className="ml-2 text-gray-600 dark:text-gray-300">
-                Sarah Johnson
-              </span>
-            </div>
-            <span className="text-gray-500 dark:text-gray-400">
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                className="h-4 w-4 inline-block mr-1"
-                viewBox="0 0 20 20"
-                fill="currentColor"
-              >
-                <path d="M10 12a2 2 0 100-4 2 2 0 000 4z" />
-                <path
-                  fillRule="evenodd"
-                  d="M.458 10C3.732 5.932 7.461 4 11 4c3.539 0 7.268 1.932 10.542 6C18.268 14.068 15.539 16 11 16c-3.539 0-7.268-1.932-10.542-6zM11 18c-3.86 0-7-3.14-7-7s3.14-7 7-7 7 3.14 7 7-3.14 7-7 7z"
-                  clipRule="evenodd"
+      {/* Header */}
+
+      <div className="mt-30 mb-10 w-11/12 mx-auto">
+        <button className="text-gray-500 dark:text-gray-400 hover:text-teal-700 dark:hover:text-teal-300 flex items-center gap-4 cursor-pointer">
+          <FaLongArrowAltLeft size={20} />
+          Back to Articles
+        </button>
+      </div>
+
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8  mb-60">
+        <div className="transition-colors duration-500 mb-10">
+          {/* Main Content */}
+          <div className=" px-4 py-8 bg-white dark:bg-gray-900 rounded-md">
+            {/* Article Header */}
+            <div className="mb-8">
+              {/* Article Image */}
+              <div class="w-full h-96 flex justify-center items-center overflow-hidden rounded-lg mb-4">
+                <img
+                  src="https://images.pexels.com/photos/32417557/pexels-photo-32417557/free-photo-of-charming-antique-shop-in-paris-display-window.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
+                  alt="Article Image"
+                  class="min-w-full min-h-full object-cover"
                 />
-              </svg>
-              December 15, 2024
-            </span>
-            <span className="text-gray-500 dark:text-gray-400">
-              <FaHeart className="h-4 w-4 inline-block mr-1" /> 89
-            </span>
-            <span className="text-gray-500 dark:text-gray-400">
-              <FaShareAlt className="h-4 w-4 inline-block mr-1" />
-            </span>
-          </div>
-        </div>
+              </div>
 
-        {/* Hero Image Placeholder */}
-        <div className="bg-gray-100 dark:bg-gray-800 rounded-lg shadow-md p-8 mb-8">
-          <div className="flex items-center justify-center h-64">
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              className="h-16 w-16 text-gray-300"
-              fill="none"
-              viewBox="0 0 24 24"
-              stroke="currentColor"
-            >
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                strokeWidth={2}
-                d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-8l-4-4m0 0l4-4m-4 4l4 4m-4 4V4"
-              />
-            </svg>
-          </div>
-        </div>
+              {/* Article Meta */}
+              <div className="flex items-center justify-between mb-4">
+                {/* Tags */}
+                <div className="flex space-x-2">
+                  <span className="bg-teal-700 text-white px-2 py-1 rounded font-semibold">
+                    Technology
+                  </span>
+                  <span className="bg-teal-700 text-white px-2 py-1 rounded font-semibold">
+                    AI
+                  </span>
+                  <span className="bg-teal-700 text-white px-2 py-1 rounded font-semibold">
+                    Education
+                  </span>
+                  <span className="bg-teal-700 text-white px-2 py-1 rounded font-semibold">
+                    Future
+                  </span>
+                </div>
+              </div>
 
-        {/* Article Content */}
-        <div className="mb-8">
-          <p className="text-gray-600 dark:text-gray-300 mb-4">
-            Artificial intelligence is revolutionizing the educational landscape
-            in ways we never imagined possible. From personalized learning
-            experiences to automated grading systems, AI is transforming how we
-            teach and learn.
-          </p>
-          <h2 className="text-xl font-bold mb-2 mt-8">
-            The Current State of AI in Education
-          </h2>
-          <p className="text-gray-600 dark:text-gray-300 mb-4">
-            Today's educational institutions are increasingly adopting
-            AI-powered tools to enhance the learning experience. These
-            technologies are helping educators create more engaging and
-            effective learning environments while providing students with
-            personalized support.
-          </p>
-          <h2 className="text-xl font-bold mb-2 mt-8">Key Applications</h2>
-          <ul className="list-disc pl-6 text-gray-600 dark:text-gray-300 mb-4">
-            <li>
-              Personalized Learning Paths: AI algorithms analyze student
-              performance and learning patterns to create customized educational
-              experiences.
-            </li>
-            <li>
-              Intelligent Tutoring Systems: Virtual tutors provide 24/7 support,
-              answering questions and guiding students through complex concepts.
-            </li>
-            <li>
-              Automated Assessment: AI can grade assignments, provide feedback,
-              and identify areas where students need additional support.
-            </li>
-            <li>
-              Content Creation: AI tools help educators create engaging
-              multimedia content and interactive learning materials.
-            </li>
-          </ul>
-          <h2 className="text-xl font-bold mb-2 mt-8">
-            Benefits and Challenges
-          </h2>
-          <p className="text-gray-600 dark:text-gray-300 mb-4">
-            While AI offers tremendous potential for improving education, it
-            also presents certain challenges that need to be addressed:
-          </p>
-          <h3 className="text-lg font-bold mb-2">Benefits:</h3>
-          <ul className="list-disc pl-6 text-gray-600 dark:text-gray-300 mb-4">
-            <li>Enhanced personalization and adaptive learning</li>
-            <li>Improved accessibility for students with disabilities</li>
-            <li>More efficient administrative processes</li>
-            <li>Data-driven insights for better decision making</li>
-          </ul>
-          <h3 className="text-lg font-bold mb-2">Challenges:</h3>
-          <ul className="list-disc pl-6 text-gray-600 dark:text-gray-300 mb-4">
-            <li>Privacy and data security concerns</li>
-            <li>The need for teacher training and adaptation</li>
-            <li>Ensuring equitable access to AI technologies</li>
-            <li>Maintaining human connection in education</li>
-          </ul>
-          <h2 className="text-xl font-bold mb-2 mt-8">Looking Ahead</h2>
-          <p className="text-gray-600 dark:text-gray-300 mb-4">
-            The future of AI in education is bright, with emerging technologies
-            like natural language processing, computer vision, and machine
-            learning continuing to evolve. As we move forward, it's crucial to
-            strike a balance between leveraging AI's capabilities and preserving
-            the human elements that make education meaningful.
-          </p>
-          <p className="text-gray-600 dark:text-gray-300 mb-4">
-            Educational institutions, policymakers, and technology developers
-            must work together to ensure that AI serves as a tool for
-            empowerment rather than replacement, enhancing the educational
-            experience while maintaining the irreplaceable value of human
-            mentorship and connection.
-          </p>
-        </div>
+              {/* Article Title */}
+              <h1 className="text-2xl md:text-3xl font-bold text-gray-800 dark:text-white mb-2">
+                The Future of Artificial Intelligence in Education
+              </h1>
 
-        {/* Tags */}
-        <div className="flex flex-wrap gap-2 mb-8">
-          <span className="bg-gray-200 dark:bg-gray-700 text-gray-600 dark:text-gray-300 px-2 py-1 rounded-md text-xs">
-            #AI
-          </span>
-          <span className="bg-gray-200 dark:bg-gray-700 text-gray-600 dark:text-gray-300 px-2 py-1 rounded-md text-xs">
-            #Education
-          </span>
-          <span className="bg-gray-200 dark:bg-gray-700 text-gray-600 dark:text-gray-300 px-2 py-1 rounded-md text-xs">
-            #Future
-          </span>
-          <span className="bg-gray-200 dark:bg-gray-700 text-gray-600 dark:text-gray-300 px-2 py-1 rounded-md text-xs">
-            #Technology
-          </span>
-          <span className="bg-gray-200 dark:bg-gray-700 text-gray-600 dark:text-gray-300 px-2 py-1 rounded-md text-xs">
-            #Learning
-          </span>
-        </div>
+              {/* Author and Date */}
+              <div className="flex items-center space-x-2 text-gray-500 dark:text-gray-400 mb-4">
+                <div className="flex items-center gap-4">
+                  <img
+                    src="https://images.pexels.com/photos/32470472/pexels-photo-32470472/free-photo-of-dog-amidst-blooming-rhododendrons-in-forest.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
+                    alt=""
+                    className="w-8 h-8 rounded-full"
+                  />
 
-        {/* Author Bio */}
-        <div className="bg-white dark:bg-gray-800 rounded-lg shadow-md p-6 mb-8">
-          <div className="flex items-center space-x-4 mb-4">
-            <div className="w-10 h-10 bg-gray-300 rounded-full"></div>
-            <div>
-              <h3 className="text-lg font-bold">About Sarah Johnson</h3>
-              <p className="text-gray-600 dark:text-gray-300">
-                Sarah is an EdTech researcher and AI enthusiast with over 10
-                years of experience in educational technology. She holds a PhD
-                in Computer Science and has published numerous papers on AI
-                applications in learning.
-              </p>
+                  <span>Sarah Johnson</span>
+                </div>
+                <span>•</span>
+                <span>2024-03-15</span>
+                <span>•</span>
+                <span>24 comments</span>
+              </div>
             </div>
+
+            {/* Article Content */}
+            <article className="prose prose-sm md:prose lg:prose-lg max-w-none text-gray-700 dark:text-gray-300">
+              <p>
+                Artificial Intelligence is revolutionizing the education sector
+                in unprecedented ways. From personalized learning experiences to
+                automated grading systems, AI is transforming how students learn
+                and how educators teach.
+              </p>
+              <h2>Personalized Learning Paths</h2>
+              <p>
+                One of the most significant impacts of AI in education is the
+                ability to create personalized learning paths for each student.
+                By analyzing learning patterns, strengths, and weaknesses, AI
+                systems can adapt content delivery to match individual learning
+                styles and pace.
+              </p>
+              <h2>Intelligent Tutoring Systems</h2>
+              <p>
+                AI-powered tutoring systems are becoming increasingly
+                sophisticated, providing 24/7 support to students. These systems
+                can identify knowledge gaps, provide targeted exercises, and
+                offer explanations tailored to each student’s understanding
+                level.
+              </p>
+              <h2>Automated Assessment and Feedback</h2>
+              <p>
+                Traditional grading methods are time-consuming and sometimes
+                subjective. AI can provide instant feedback on assignments,
+                essays, and even creative work, allowing students to iterate and
+                improve their work more quickly.
+              </p>
+              <h2>Challenges and Considerations</h2>
+              <p>
+                While AI offers tremendous opportunities, we must also address
+                concerns about data privacy, the digital divide, and ensuring
+                that AI enhances rather than replaces human connection in
+                education.
+              </p>
+              <h2>The Future</h2>
+              <p>
+                As AI technology continues to evolve, we can expect even more
+                innovative applications in education. Virtual reality
+                classrooms, AI-generated educational content, and predictive
+                analytics for student success are just the beginning.
+              </p>
+            </article>
           </div>
-          <button className="bg-gray-200 dark:bg-gray-700 text-gray-600 dark:text-gray-300 px-4 py-2 rounded-md hover:bg-gray-300 dark:hover:bg-gray-600 transition duration-300 ease-in-out">
-            Follow Author
-          </button>
         </div>
 
         {/* Comments Section */}
@@ -383,41 +308,6 @@ const ArticleDetails = () => {
         </div>
 
         {/* Related Articles */}
-        <div className="bg-white dark:bg-gray-800 rounded-lg shadow-md p-6">
-          <h3 className="text-lg font-bold mb-4">Related Articles</h3>
-          <div>
-            <div className="flex items-center justify-between mb-4">
-              <div>
-                <h4 className="text-gray-600 dark:text-gray-300">
-                  Machine Learning Basics for Educators
-                </h4>
-                <p className="text-gray-500 dark:text-gray-400">
-                  By David Park · Dec 10, 2024 · 6 min read
-                </p>
-              </div>
-            </div>
-            <div className="flex items-center justify-between mb-4">
-              <div>
-                <h4 className="text-gray-600 dark:text-gray-300">
-                  Digital Transformation in Higher Education
-                </h4>
-                <p className="text-gray-500 dark:text-gray-400">
-                  By Lisa Wang · Dec 8, 2024 · 7 min read
-                </p>
-              </div>
-            </div>
-            <div className="flex items-center justify-between mb-4">
-              <div>
-                <h4 className="text-gray-600 dark:text-gray-300">
-                  Ethics in Educational Technology
-                </h4>
-                <p className="text-gray-500 dark:text-gray-400">
-                  By Prof. Robert Kim · Dec 5, 2024 · 5 min read
-                </p>
-              </div>
-            </div>
-          </div>
-        </div>
       </div>
     </>
   );
