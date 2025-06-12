@@ -56,21 +56,21 @@ const AboutUsPage = () => {
       role: "Founder & CEO",
       bio: "Computer Science student passionate about making education accessible to everyone.",
       image:
-        "https://images.unsplash.com/photo-1494790108755-2616b612b5bc?w=150&h=150&fit=crop&crop=face",
+        "https://images.pexels.com/photos/18100324/pexels-photo-18100324/free-photo-of-a-green-eyed-cat.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
     },
     {
       name: "Michael Chen",
       role: "Lead Developer",
       bio: "Full-stack developer and education technology enthusiast.",
       image:
-        "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=150&h=150&fit=crop&crop=face",
+        "https://images.pexels.com/photos/774731/pexels-photo-774731.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
     },
     {
       name: "Emily Rodriguez",
       role: "Community Manager",
       bio: "Psychology major focused on building inclusive learning communities.",
       image:
-        "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=150&h=150&fit=crop&crop=face",
+        "https://images.pexels.com/photos/32050138/pexels-photo-32050138/free-photo-of-stunning-ragdoll-cat-with-blue-eyes-indoors.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
     },
   ];
 

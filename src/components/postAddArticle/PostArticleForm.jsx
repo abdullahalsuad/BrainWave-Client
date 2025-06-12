@@ -1,6 +1,6 @@
 import { IoMdAdd } from "react-icons/io";
-import JoditEditor from "jodit-react";
-import { useState } from "react";
+// import JoditEditor from "jodit-react";
+// import { useState } from "react";
 
 const PostArticleForm = ({
   handleAddTag,
@@ -9,8 +9,8 @@ const PostArticleForm = ({
   newTag,
   setNewTag,
 }) => {
-  const [content, setContent] = useState("");
-  console.log(content);
+  // const [content, setContent] = useState("");
+  // console.log(content);
 
   return (
     <>
@@ -48,8 +48,14 @@ const PostArticleForm = ({
             <label htmlFor="content" className="block font-medium mb-2">
               Content *
             </label>
+            <textarea
+              id="content"
+              placeholder="Write your article content here..."
+              rows="10"
+              className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-teal-400 dark:border-gray-700 dark:bg-gray-900 dark:text-white"
+            />
             {/* Replace textarea with JoditEditor */}
-            <JoditEditor
+            {/* <JoditEditor
               value={content}
               onChange={(newContent) => setContent(newContent)}
               config={{
@@ -65,7 +71,7 @@ const PostArticleForm = ({
                 toolbarAdaptive: false,
               }}
               className="dark:bg-gray-900 dark:text-white"
-            />
+            /> */}
           </div>
 
           <div className="mb-5">
