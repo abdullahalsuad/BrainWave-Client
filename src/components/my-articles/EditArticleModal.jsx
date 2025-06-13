@@ -22,7 +22,7 @@ const EditArticleModal = ({ article, onClose, handleSave }) => {
 
   return (
     <div className="fixed inset-0 z-50 flex items-center justify-center backdrop-blur-sm bg-black/30 transition-all duration-300">
-      <div className="w-full sm:w-11/12 md:w-12/12 bg-white dark:bg-gray-800 p-2 mx-2 lg:p-6 rounded-xl shadow-2xl max-h-[90vh] overflow-y-auto animate-fadeInUp border border-gray-100 dark:border-gray-700">
+      <div className="w-full lg:w-8/12 md:w-12/12 bg-white dark:bg-gray-800 p-2 mx-2 lg:p-6 rounded-xl shadow-2xl max-h-[90vh] overflow-y-auto animate-fadeInUp border border-gray-100 dark:border-gray-700">
         {/* Title & Close Button */}
         <div className="flex items-center justify-between mb-6">
           <h2 className="text-2xl font-bold text-gray-800 dark:text-white">
@@ -175,7 +175,7 @@ const EditArticleModal = ({ article, onClose, handleSave }) => {
                     <button
                       type="button"
                       onClick={handleAddTag}
-                      className="px-4 py-2 lg:ml-2 mt-4 bg-indigo-100 border border-indigo-300 text-indigo-700 dark:bg-indigo-900 dark:border-indigo-700 dark:text-indigo-300 rounded-md hover:bg-indigo-200 dark:hover:bg-indigo-800 transition flex items-center gap-1"
+                      className="px-4 py-2 lg:ml-2 mt-4 bg-gray-100 border border-gray-300 text-gray-700 dark:bg-gray-900 dark:border-gray-700 dark:text-gray-300 rounded-md hover:bg-gray-200 dark:hover:bg-gray-800 transition flex items-center gap-1"
                     >
                       <IoMdAdd /> Add
                     </button>
@@ -184,7 +184,7 @@ const EditArticleModal = ({ article, onClose, handleSave }) => {
                     {tags.map((tag, index) => (
                       <span
                         key={index}
-                        className="inline-flex items-center px-3 py-1 bg-indigo-100 text-indigo-800 dark:bg-indigo-900 dark:text-indigo-200 rounded-full text-sm"
+                        className="inline-flex items-center px-3 py-1 bg-gray-100 text-gray-800 dark:bg-gray-900 dark:text-gray-200 rounded-full text-sm"
                       >
                         {tag}
                         <button
