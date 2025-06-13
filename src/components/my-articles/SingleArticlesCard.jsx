@@ -12,6 +12,7 @@ const SingleArticlesCard = ({ article, handleRemove, handleEdit }) => {
       year: "numeric",
     });
   };
+
   return (
     <div className="bg-white dark:bg-gray-800 p-6 rounded-xl shadow border border-gray-200 dark:border-gray-700">
       <div className="flex flex-col lg:flex-row gap-6">
@@ -40,7 +41,7 @@ const SingleArticlesCard = ({ article, handleRemove, handleEdit }) => {
             </div>
             <div className="flex gap-2 mt-2 sm:mt-0">
               <button
-                onClick={() => handleEdit(article._id)}
+                onClick={() => handleEdit(article)}
                 className="inline-flex items-center px-3 py-2 border border-gray-300 dark:border-gray-600 rounded hover:bg-gray-100 dark:hover:bg-gray-700 transition cursor-pointer text-md"
               >
                 <Edit className="w-4 h-4 mr-1" /> Edit

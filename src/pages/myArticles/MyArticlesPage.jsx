@@ -2,17 +2,20 @@ import StatsCards from "../../components/my-articles/StatsCards";
 import NoArticlesFound from "../../components/my-articles/NoArticlesFound";
 import SingleArticlesCard from "../../components/my-articles/SingleArticlesCard";
 import MyArticlesHeader from "../../components/my-articles/MyArticlesHeader";
-import { use } from "react";
+import { use, useState } from "react";
 import { ArticleContext } from "../../context/ArticlesProvider";
 import ArticleCardSkeleton from "../../components/loading/ArticleCardSkeleton";
 import useAxiosSecure from "../../hooks/useAxiosSecure";
 import { toast } from "react-toastify";
 import Swal from "sweetalert2";
+import EditArticleModal from "../../components/my-articles/EditArticleModal";
 
 const MyArticlesPage = () => {
+  const [editingArticle, setEditingArticle] = useState(null);
+  const axiosSecure = useAxiosSecure();
+
   const { myArticles, loading, setAllArticles, setMyArticles } =
     use(ArticleContext);
-  const axiosSecure = useAxiosSecure();
 
   // handling delete articles
   const handleRemove = (id) => {
@@ -49,8 +52,41 @@ const MyArticlesPage = () => {
   };
 
   // handling edit articles
-  const handleEdit = async (id) => {
-    console.log(id);
+  const handleEdit = (article) => {
+    setEditingArticle(article);
+  };
+
+  const handleSave = async (id, e, tags) => {
+    e.preventDefault();
+
+    // Collect user input values from the form elements
+    const form = e.target;
+    const formData = new FormData(form);
+    const updatedData = Object.fromEntries(formData.entries());
+    console.log(updatedData);
+    updatedData.articleTags = tags;
+
+    try {
+      const response = await axiosSecure.put(`/my-articles/${id}`, updatedData);
+      const updatedArticle = response.data;
+
+      if (response.status === 201) {
+        toast.success("Article updated successfully");
+
+        //ui update
+        setMyArticles((prev) =>
+          prev.map((a) => (a._id === id ? updatedArticle : a))
+        );
+
+        setAllArticles((prev) =>
+          prev.map((a) => (a._id === id ? updatedArticle : a))
+        );
+        setEditingArticle(null);
+      }
+    } catch (err) {
+      console.error("Error updating article", err);
+      toast.error("Failed to update article");
+    }
   };
 
   return (
@@ -82,6 +118,15 @@ const MyArticlesPage = () => {
         </div>
       ) : (
         <NoArticlesFound />
+      )}
+
+      {/* update modal */}
+      {editingArticle && (
+        <EditArticleModal
+          article={editingArticle}
+          onClose={() => setEditingArticle(null)}
+          handleSave={handleSave}
+        />
       )}
     </div>
   );

@@ -133,6 +133,7 @@ const PostArticleForm = ({
                 <select
                   required
                   id="category"
+                  name="articleCategory"
                   className="appearance-none w-full px-3 py-2 border border-gray-300 rounded-md pr-10 focus:outline-none focus:ring-2 focus:ring-teal-400 dark:border-gray-700 dark:bg-gray-900 dark:text-white cursor-pointer"
                 >
                   <option value="">Select Category</option>

@@ -10,11 +10,10 @@ const PostArticlePage = () => {
   const [tags, setTags] = useState([]);
   const [newTag, setNewTag] = useState("");
   const [isLoading, setIsLoading] = useState(false);
+  const axiosSecure = useAxiosSecure();
 
   const { user } = use(AuthContext);
-
-  const { setAllArticles } = use(ArticleContext);
-  const axiosSecure = useAxiosSecure();
+  const { setAllArticles, setMyArticles } = use(ArticleContext);
 
   const displayName = user?.displayName;
   const creatorEmail = user?.email;
@@ -70,6 +69,7 @@ const PostArticlePage = () => {
         // UI update
         e.target.reset();
         setAllArticles((prev) => [...prev, response.data]);
+        setMyArticles((prev) => [...prev, response.data]);
         setTags([]);
         setIsLoading(false);
       }
