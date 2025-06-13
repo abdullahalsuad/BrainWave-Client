@@ -4,6 +4,7 @@ import PostArticleForm from "../../components/postAddArticle/PostArticleForm";
 import { toast } from "react-toastify";
 import { AuthContext } from "../../context/AuthProvider";
 import useAxiosSecure from "../../hooks/useAxiosSecure";
+import { ArticleContext } from "../../context/ArticlesProvider";
 
 const PostArticlePage = () => {
   const [tags, setTags] = useState([]);
@@ -11,6 +12,8 @@ const PostArticlePage = () => {
   const [isLoading, setIsLoading] = useState(false);
 
   const { user } = use(AuthContext);
+
+  const { setAllArticles } = use(ArticleContext);
   const axiosSecure = useAxiosSecure();
 
   const displayName = user?.displayName;
@@ -66,6 +69,7 @@ const PostArticlePage = () => {
         toast.success("Article added successfully!");
         // UI update
         e.target.reset();
+        setAllArticles((prev) => [...prev, response.data]);
         setTags([]);
         setIsLoading(false);
       }

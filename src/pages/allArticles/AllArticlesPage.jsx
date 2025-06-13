@@ -5,7 +5,6 @@ import { ArticleContext } from "../../context/ArticlesProvider";
 
 const AllArticlesPage = () => {
   const { allArticles, loading } = use(ArticleContext);
-  console.log(allArticles);
 
   // Mock Data
   const popularTags = [
@@ -61,7 +60,7 @@ const AllArticlesPage = () => {
           {/* Article Cards */}
           <div className="col-span-2">
             {allArticles.map((article) => (
-              <ArticleCards article={article} />
+              <ArticleCards article={article} key={article._id} />
             ))}
           </div>
 

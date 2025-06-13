@@ -72,7 +72,7 @@ const ArticleCards = ({ article }) => {
         </div>
 
         <Link
-          to={`/all-articles/:${article._id}`}
+          to={`/all-articles/${article._id}`}
           className="block mt-4 text-sm font-medium text-indigo-600 dark:text-indigo-400 hover:underline"
         >
           Read More →

@@ -17,7 +17,7 @@ const ArticlesProvider = ({ children }) => {
   useEffect(() => {
     const fetchAllJobs = async () => {
       try {
-        const response = await axiosSecure.get("articles");
+        const response = await axiosSecure.get("/articles");
         const articlesData = response.data;
         setAllArticles(articlesData);
         setLoading(false);
