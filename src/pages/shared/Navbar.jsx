@@ -78,30 +78,30 @@ const Navbar = () => {
             >
               All Articles
             </NavLink>
-            {user && (
-              <>
-                <NavLink
-                  to="/my-articles"
-                  className={({ isActive }) =>
-                    isActive
-                      ? "text-base font-medium text-teal-700 dark:text-teal-400"
-                      : "text-base font-medium text-gray-700 dark:text-gray-300 hover:text-teal-700 dark:hover:text-teal-400 transition"
-                  }
-                >
-                  My Articles
-                </NavLink>
-                <NavLink
-                  to="/post-article"
-                  className={({ isActive }) =>
-                    isActive
-                      ? "text-base font-medium text-teal-700 dark:text-teal-400"
-                      : "text-base font-medium text-gray-700 dark:text-gray-300 hover:text-teal-700 dark:hover:text-teal-400 transition"
-                  }
-                >
-                  Post Article
-                </NavLink>
-              </>
-            )}
+
+            <>
+              <NavLink
+                to="/my-articles"
+                className={({ isActive }) =>
+                  isActive
+                    ? "text-base font-medium text-teal-700 dark:text-teal-400"
+                    : "text-base font-medium text-gray-700 dark:text-gray-300 hover:text-teal-700 dark:hover:text-teal-400 transition"
+                }
+              >
+                My Articles
+              </NavLink>
+              <NavLink
+                to="/post-article"
+                className={({ isActive }) =>
+                  isActive
+                    ? "text-base font-medium text-teal-700 dark:text-teal-400"
+                    : "text-base font-medium text-gray-700 dark:text-gray-300 hover:text-teal-700 dark:hover:text-teal-400 transition"
+                }
+              >
+                Post Article
+              </NavLink>
+            </>
+
             <NavLink
               to="/about-us"
               className={({ isActive }) =>
@@ -385,7 +385,7 @@ const Navbar = () => {
                   </button>
                 </>
               ) : (
-                <>
+                <div className="my-4">
                   <Link
                     to="/login"
                     className="px-5 py-2.5 text-sm font-medium text-black dark:text-white bg-white dark:bg-gray-700 border border-gray-700 dark:border-gray-600 rounded-md hover:bg-teal-70 dark:hover:bg-gray-600 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-teal-700 dark:focus:ring-teal-500 transition mr-4 w-full text-center"
@@ -400,7 +400,7 @@ const Navbar = () => {
                   >
                     Register
                   </Link>
-                </>
+                </div>
               )}
             </div>
           </div>

@@ -133,7 +133,7 @@ const PostArticleForm = ({
                 <select
                   required
                   id="category"
-                  name=""
+                  name="articleCategory"
                   className="appearance-none w-full px-3 py-2 border border-gray-300 rounded-md pr-10 focus:outline-none focus:ring-2 focus:ring-teal-400 dark:border-gray-700 dark:bg-gray-900 dark:text-white cursor-pointer"
                 >
                   <option value="">Select Category</option>
@@ -142,7 +142,6 @@ const PostArticleForm = ({
                   </option>
                   <option value="Cybersecurity">Cybersecurity</option>
                   <option value="Cloud-Computing">Cloud Computing</option>
-                  <option value="Project-Based">Project Based</option>
                   <option value="Internet-of-Things">Internet of Things</option>
                   <option value="Blockchain-Technology">
                     Blockchain Technology

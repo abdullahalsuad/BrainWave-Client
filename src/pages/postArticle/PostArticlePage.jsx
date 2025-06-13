@@ -49,6 +49,7 @@ const PostArticlePage = () => {
     const form = e.target;
     const formData = new FormData(form);
     const formValues = Object.fromEntries(formData.entries());
+    console.log(formValues);
 
     const articleData = {
       ...formValues,

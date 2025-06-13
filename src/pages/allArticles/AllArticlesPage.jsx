@@ -2,6 +2,7 @@ import { use } from "react";
 import SearchBarAndFilters from "../../components/allArticles/SearchBarAndFilters";
 import ArticleCards from "../../components/allArticles/ArticleCards";
 import { ArticleContext } from "../../context/ArticlesProvider";
+import AllArticleCardSkeleton from "../../components/loading/AllArticleCardSkeleton";
 
 const AllArticlesPage = () => {
   const { allArticles, loading } = use(ArticleContext);
@@ -41,7 +42,7 @@ const AllArticlesPage = () => {
   return (
     <>
       <div
-        className="dark:bg-gray-900 min-h-screen lg:p-6
+        className=" min-h-screen lg:p-6
       mt-30 mb-70"
       >
         {/* Header */}
@@ -62,9 +63,19 @@ const AllArticlesPage = () => {
         <div className="lg:max-w-7xl  mx-auto px-4 sm:px-6 lg:px-8 grid grid-cols-1 md:grid-cols-3 gap-6">
           {/* Article Cards */}
           <div className="col-span-2 md:col-span-2">
-            {allArticles.map((article) => (
-              <ArticleCards article={article} key={article._id} />
-            ))}
+            {loading ? (
+              <>
+                <AllArticleCardSkeleton />
+                <AllArticleCardSkeleton />
+                <AllArticleCardSkeleton />
+                <AllArticleCardSkeleton />
+                <AllArticleCardSkeleton />
+              </>
+            ) : (
+              allArticles.map((article) => (
+                <ArticleCards article={article} key={article._id} />
+              ))
+            )}
           </div>
 
           {/* Sidebar */}
