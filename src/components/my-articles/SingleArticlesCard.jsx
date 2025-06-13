@@ -27,7 +27,11 @@ const SingleArticlesCard = ({ article, handleRemove, handleEdit }) => {
               {article.articleTitle}
             </h3>
           </div>
-          <p className="text-gray-600 dark:text-gray-300 mb-4">hello</p>
+          <p className="text-gray-600 dark:text-gray-300 mb-4">
+            {article.articleContent.length > 200
+              ? `${article.articleContent.substring(0, 200)}...`
+              : article.articleContent}
+          </p>
           <div className="flex flex-col sm:flex-row sm:justify-between text-sm text-gray-500 dark:text-gray-400">
             <div className="flex gap-4">
               <span>{formatDate(article.createdAt)}</span>

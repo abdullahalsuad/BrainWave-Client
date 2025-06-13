@@ -10,9 +10,13 @@ import ArticleDetailSkeleton from "../../components/loading/ArticleDetailSkeleto
 const ArticleDetails = () => {
   const [loading, setLoading] = useState(true);
   const [singleArticle, setSingleArticle] = useState();
+  const axiosSecure = useAxiosSecure();
   const { id } = useParams();
 
-  const axiosSecure = useAxiosSecure();
+  // scroll to top
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
 
   // date formate
   const formatDate = (isoString) => {

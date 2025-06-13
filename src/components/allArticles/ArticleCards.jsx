@@ -33,7 +33,9 @@ const ArticleCards = ({ article }) => {
           {article.title}
         </h2>
         <p className="text-gray-600 dark:text-gray-300 mb-4">
-          {article.articleContent}
+          {article.articleContent.length > 200
+            ? `${article.articleContent.substring(0, 200)}...`
+            : article.articleContent}
         </p>
 
         <div className="flex items-center space-x-2 mb-2">
