@@ -40,7 +40,10 @@ const AllArticlesPage = () => {
   ];
   return (
     <>
-      <div className="dark:bg-gray-900 min-h-screen p-6">
+      <div
+        className="dark:bg-gray-900 min-h-screen lg:p-6
+      mt-30 mb-70"
+      >
         {/* Header */}
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <h1 className="text-4xl font-bold text-center text-gray-900 dark:text-white mb-4">
@@ -56,16 +59,16 @@ const AllArticlesPage = () => {
         <SearchBarAndFilters />
 
         {/* Main Content */}
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid grid-cols-1 md:grid-cols-3 gap-6">
+        <div className="lg:max-w-7xl  mx-auto px-4 sm:px-6 lg:px-8 grid grid-cols-1 md:grid-cols-3 gap-6">
           {/* Article Cards */}
-          <div className="col-span-2">
+          <div className="col-span-2 md:col-span-2">
             {allArticles.map((article) => (
               <ArticleCards article={article} key={article._id} />
             ))}
           </div>
 
           {/* Sidebar */}
-          <div className="col-span-1">
+          <div className="col-span-1 md:col-span-1">
             {/* Popular Tags */}
             <div className="bg-white dark:bg-gray-800 rounded-lg shadow-md p-4 mb-6">
               <h3 className="text-lg font-bold text-gray-900 dark:text-white mb-2">

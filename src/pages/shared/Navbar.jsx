@@ -32,7 +32,7 @@ const Navbar = () => {
   const handleSignOut = async () => {
     try {
       await signOutUser();
-      navigate("/");
+      navigate("/all-articles");
       toast.success("Logout successful.");
     } catch (error) {
       console.log(error);

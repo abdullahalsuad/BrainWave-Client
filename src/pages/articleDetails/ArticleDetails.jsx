@@ -39,7 +39,7 @@ const ArticleDetails = () => {
 
   return (
     <>
-      <div className="mt-30 mb-10 w-11/12 mx-auto">
+      <div className="mt-30 mb-10 w-11/12 mx-auto ">
         <Link to={"/all-articles"}>
           <button className="text-gray-500 dark:text-gray-400 hover:text-teal-700 dark:hover:text-teal-300 flex items-center gap-4 cursor-pointer">
             <FaLongArrowAltLeft size={20} />

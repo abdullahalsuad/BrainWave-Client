@@ -79,7 +79,7 @@ const PostArticlePage = () => {
   };
 
   return (
-    <div className="w-10/12 mx-auto p-6 mb-60 mt-20">
+    <div className="lg:w-10/12 mx-auto p-6 mt-30 mb-70">
       <h1 className="text-2xl font-bold mb-1">Create New Article</h1>
       <p className="text-gray-600 mb-8 dark:text-gray-400">
         Share your knowledge with the community

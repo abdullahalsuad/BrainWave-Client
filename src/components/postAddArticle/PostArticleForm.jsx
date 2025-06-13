@@ -120,7 +120,7 @@ const PostArticleForm = ({
 
         {/* Right Column: Category & Tags */}
         <div>
-          <div className="bg-white border border-gray-200 p-6 rounded-lg dark:bg-gray-800 dark:border-gray-700 mb-4">
+          <div className="bg-white border border-gray-200 lg:p-6 p-4 rounded-lg dark:bg-gray-800 dark:border-gray-700 mb-4">
             <h2 className="text-lg font-semibold mb-4 pb-2 border-b border-gray-100 dark:border-gray-700">
               Category & Tags
             </h2>
@@ -133,7 +133,7 @@ const PostArticleForm = ({
                 <select
                   required
                   id="category"
-                  name="articleCategory"
+                  name=""
                   className="appearance-none w-full px-3 py-2 border border-gray-300 rounded-md pr-10 focus:outline-none focus:ring-2 focus:ring-teal-400 dark:border-gray-700 dark:bg-gray-900 dark:text-white cursor-pointer"
                 >
                   <option value="">Select Category</option>
@@ -176,7 +176,7 @@ const PostArticleForm = ({
               <label htmlFor="tags" className="block font-medium mb-2">
                 Tags
               </label>
-              <div className="flex mb-2">
+              <div className="lg:flex mb-2">
                 <input
                   type="text"
                   value={newTag}
@@ -188,7 +188,7 @@ const PostArticleForm = ({
                 <button
                   type="button"
                   onClick={handleAddTag}
-                  className="px-4 py-2 bg-gray-100 border border-gray-300 rounded-md hover:bg-gray-200 dark:bg-gray-700 dark:hover:bg-gray-600 dark:text-white transition duration-200 flex items-center gap-1 cursor-pointer ml-4"
+                  className="px-4 py-2 bg-gray-100 border border-gray-300 rounded-md hover:bg-gray-200 dark:bg-gray-700 dark:hover:bg-gray-600 dark:text-white transition duration-200 flex items-center gap-1 cursor-pointer lg:ml-4 mt-4"
                 >
                   <IoMdAdd />
                   Add

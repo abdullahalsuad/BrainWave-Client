@@ -18,11 +18,11 @@ const ArticleCards = ({ article }) => {
     <>
       <div className="bg-white dark:bg-gray-800 rounded-lg shadow-md p-4 mb-6">
         <div className="flex justify-between mb-2">
-          <div className="flex items-center space-x-2">
+          <div className="flex flex-wrap gap-2  items-center space-x-2">
             {article.articleTags.map((tag, tagIndex) => (
               <span
                 key={tagIndex}
-                className="inline-block px-3 py-1 text-sm font-semibold rounded-full bg-teal-500 text-white"
+                className=" px-3 py-1 text-sm font-semibold rounded-full bg-teal-500 text-white"
               >
                 {tag}
               </span>

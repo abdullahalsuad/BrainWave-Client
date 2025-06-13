@@ -89,7 +89,7 @@ const MyArticlesPage = () => {
   };
 
   return (
-    <div className="lg:w-8/12 mx-auto px-4 py-8 mt-30 mb-70 dark:text-gray-100">
+    <div className="lg:w-8/12  mx-auto px-4 py-8 mt-30 mb-70 dark:text-gray-100">
       {/* Page Header */}
       <MyArticlesHeader />
 

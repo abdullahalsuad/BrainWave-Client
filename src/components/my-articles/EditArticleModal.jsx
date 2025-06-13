@@ -22,7 +22,7 @@ const EditArticleModal = ({ article, onClose, handleSave }) => {
 
   return (
     <div className="fixed inset-0 z-50 flex items-center justify-center backdrop-blur-sm bg-black/30 transition-all duration-300">
-      <div className="w-full sm:w-11/12 md:w-8/12 bg-white dark:bg-gray-800 p-6 rounded-xl shadow-2xl max-h-[90vh] overflow-y-auto animate-fadeInUp border border-gray-100 dark:border-gray-700">
+      <div className="w-full sm:w-11/12 md:w-12/12 bg-white dark:bg-gray-800 p-2 mx-2 lg:p-6 rounded-xl shadow-2xl max-h-[90vh] overflow-y-auto animate-fadeInUp border border-gray-100 dark:border-gray-700">
         {/* Title & Close Button */}
         <div className="flex items-center justify-between mb-6">
           <h2 className="text-2xl font-bold text-gray-800 dark:text-white">
@@ -105,7 +105,7 @@ const EditArticleModal = ({ article, onClose, handleSave }) => {
             {/* Right Column: Category & Tags */}
             <div className="space-y-6">
               {/* Category & Tags Card */}
-              <div className="bg-white border border-gray-200 p-6 rounded-lg dark:bg-gray-900 dark:border-gray-700 shadow-sm">
+              <div className="bg-white border border-gray-200 lg:p-6 p-4 rounded-lg dark:bg-gray-900 dark:border-gray-700 shadow-sm">
                 <h2 className="text-lg font-semibold mb-4 pb-2 border-b border-gray-200 dark:border-gray-700 text-gray-700 dark:text-gray-300">
                   Category & Tags
                 </h2>
@@ -163,19 +163,19 @@ const EditArticleModal = ({ article, onClose, handleSave }) => {
                   >
                     Tags
                   </label>
-                  <div className="flex mb-2">
+                  <div className="lg:flex mb-2">
                     <input
                       type="text"
                       value={newTag}
                       onChange={(e) => setNewTag(e.target.value)}
                       onKeyPress={(e) => e.key === "Enter" && handleAddTag()}
                       placeholder="Add tag..."
-                      className="flex-1 px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-teal-500 dark:border-gray-600 dark:bg-gray-800 dark:text-white transition"
+                      className="lg:flex-1 px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-teal-500 dark:border-gray-600 dark:bg-gray-800 dark:text-white transition"
                     />
                     <button
                       type="button"
                       onClick={handleAddTag}
-                      className="px-4 py-2 ml-2 bg-indigo-100 border border-indigo-300 text-indigo-700 dark:bg-indigo-900 dark:border-indigo-700 dark:text-indigo-300 rounded-md hover:bg-indigo-200 dark:hover:bg-indigo-800 transition flex items-center gap-1"
+                      className="px-4 py-2 lg:ml-2 mt-4 bg-indigo-100 border border-indigo-300 text-indigo-700 dark:bg-indigo-900 dark:border-indigo-700 dark:text-indigo-300 rounded-md hover:bg-indigo-200 dark:hover:bg-indigo-800 transition flex items-center gap-1"
                     >
                       <IoMdAdd /> Add
                     </button>
