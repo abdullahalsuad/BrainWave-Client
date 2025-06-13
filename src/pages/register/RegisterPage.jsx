@@ -1,6 +1,6 @@
 import { use, useState } from "react";
 import RegisterForm from "../../components/authentication/RegisterForm";
-import { useNavigate } from "react-router";
+import { useLocation, useNavigate } from "react-router";
 import { AuthContext } from "../../context/AuthProvider";
 import { toast } from "react-toastify";
 
@@ -8,11 +8,11 @@ const RegisterPage = () => {
   const [error, setError] = useState(null);
   const [isLoading, setIsLoading] = useState(false);
   const [showPassword, setShowPassword] = useState(false);
+  const location = useLocation();
+  const navigate = useNavigate();
 
   const { createUser, setUser, updateUser, signInWithGoogle } =
     use(AuthContext);
-
-  const navigate = useNavigate();
 
   const handleRegistration = async (e) => {
     e.preventDefault();
@@ -81,7 +81,7 @@ const RegisterPage = () => {
 
       setUser({ ...result.user, displayName: name, photoURL: photoURL });
       toast.success("Account Create successful");
-      navigate("/");
+      navigate(location?.state ? location.state : "/");
     } catch (error) {
       // Firebase Auth error codes for sign up
       const errorMessages = {

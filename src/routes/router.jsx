@@ -9,6 +9,8 @@ import AboutUsPage from "../pages/about/AboutUsPage";
 import RegisterPage from "../pages/register/RegisterPage";
 import ArticleDetails from "../pages/articleDetails/ArticleDetails";
 import NotFound from "../pages/NotFound";
+import PrivateRoute from "./PrivateRoute";
+import AuthLayout from "../components/authentication/AuthLayout";
 
 const router = createBrowserRouter([
   {
@@ -27,15 +29,27 @@ const router = createBrowserRouter([
       },
       {
         path: "/all-articles/:id",
-        element: <ArticleDetails />,
+        element: (
+          <PrivateRoute>
+            <ArticleDetails />
+          </PrivateRoute>
+        ),
       },
       {
         path: "/my-articles",
-        element: <MyArticlesPage />,
+        element: (
+          <PrivateRoute>
+            <MyArticlesPage />
+          </PrivateRoute>
+        ),
       },
       {
         path: "/post-article",
-        element: <PostArticlePage />,
+        element: (
+          <PrivateRoute>
+            <PostArticlePage />
+          </PrivateRoute>
+        ),
       },
       {
         path: "/about-us",
@@ -43,11 +57,19 @@ const router = createBrowserRouter([
       },
       {
         path: "/login",
-        element: <Login />,
+        element: (
+          <AuthLayout>
+            <Login />
+          </AuthLayout>
+        ),
       },
       {
         path: "/register",
-        element: <RegisterPage />,
+        element: (
+          <AuthLayout>
+            <RegisterPage />
+          </AuthLayout>
+        ),
       },
     ],
   },

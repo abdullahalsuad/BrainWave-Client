@@ -1,10 +1,16 @@
 import { Link, NavLink, useNavigate } from "react-router";
+import { CgProfile } from "react-icons/cg";
 import { toast } from "react-toastify";
 import { useState, useContext, use } from "react";
 import { AuthContext } from "../../context/AuthProvider";
 import { FiLogOut } from "react-icons/fi";
 import { IoDocumentTextOutline } from "react-icons/io5";
-import { IoIosAddCircleOutline, IoIosLogOut } from "react-icons/io";
+import {
+  IoIosAddCircleOutline,
+  IoIosArrowDown,
+  IoIosArrowUp,
+  IoIosLogOut,
+} from "react-icons/io";
 import { CiDark, CiLight } from "react-icons/ci";
 import { ThemeContext } from "../../context/ThemeContext";
 import { BookOpen } from "lucide-react";
@@ -132,20 +138,11 @@ const Navbar = () => {
                   <span className="text-base font-medium text-gray-800 dark:text-gray-200">
                     {user?.displayName}
                   </span>
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    className="h-5 w-5 text-gray-500 dark:text-gray-400"
-                    fill="none"
-                    viewBox="0 0 24 24"
-                    stroke="currentColor"
-                  >
-                    <path
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      strokeWidth={2}
-                      d="M19 9l-7 7-7-7"
-                    />
-                  </svg>
+                  {isUserMenuOpen ? (
+                    <IoIosArrowUp size={20} />
+                  ) : (
+                    <IoIosArrowDown size={20} />
+                  )}
                 </button>
               ) : (
                 <>
@@ -187,6 +184,7 @@ const Navbar = () => {
                         </button>
                       </div>
                       <hr className="border-t border-gray-200 dark:border-gray-700 my-1" />
+
                       <NavLink
                         to="/my-articles"
                         className={({ isActive }) =>
@@ -200,6 +198,7 @@ const Navbar = () => {
                           <IoDocumentTextOutline size={25} /> My Articles
                         </span>
                       </NavLink>
+
                       <NavLink
                         to="/post-article"
                         className={({ isActive }) =>
@@ -213,6 +212,20 @@ const Navbar = () => {
                           <IoIosAddCircleOutline size={25} /> Post Article
                         </span>
                       </NavLink>
+
+                      <NavLink
+                        className={({ isActive }) =>
+                          isActive
+                            ? "block px-4 py-3 text-sm font-medium text-teal-700 dark:text-teal-400 hover:bg-teal-70 dark:hover:bg-gray-700"
+                            : "block px-4 py-3 text-sm font-medium text-gray-700 dark:text-gray-300 hover:bg-teal-70 dark:hover:bg-gray-700 hover:text-teal-700 dark:hover:text-teal-400"
+                        }
+                        onClick={() => setIsUserMenuOpen(false)}
+                      >
+                        <span className="flex items-center gap-2 ">
+                          <CgProfile size={25} /> My Profiles
+                        </span>
+                      </NavLink>
+
                       <hr className="border-t border-gray-200 dark:border-gray-700 my-1" />
                       <button
                         onClick={handleSignOut}
@@ -313,23 +326,41 @@ const Navbar = () => {
                     to="/my-articles"
                     className={({ isActive }) =>
                       isActive
-                        ? "block py-3 text-base font-medium text-teal-700 dark:text-teal-400"
-                        : "block py-3 text-base font-medium text-gray-700 dark:text-gray-300 hover:text-teal-700 dark:hover:text-teal-400"
+                        ? "block py-2 text-sm font-medium text-teal-700 dark:text-teal-400 hover:bg-teal-70 dark:hover:bg-gray-700"
+                        : "block py-2  text-sm font-medium text-gray-700 dark:text-gray-300 hover:bg-teal-70 dark:hover:bg-gray-700 hover:text-teal-700 dark:hover:text-teal-400"
                     }
                     onClick={handleLinkClick}
                   >
-                    My Articles
+                    <span className="flex items-center gap-2 ">
+                      <IoDocumentTextOutline size={25} /> My Articles
+                    </span>
                   </NavLink>
+
                   <NavLink
                     to="/post-article"
                     className={({ isActive }) =>
                       isActive
-                        ? "block py-3 text-base font-medium text-teal-700 dark:text-teal-400"
-                        : "block py-3 text-base font-medium text-gray-700 dark:text-gray-300 hover:text-teal-700 dark:hover:text-teal-400"
+                        ? "block py-2 text-sm font-medium text-teal-700 dark:text-teal-400 hover:bg-teal-70 dark:hover:bg-gray-700"
+                        : "block py-2 text-sm font-medium text-gray-700 dark:text-gray-300 hover:bg-teal-70 dark:hover:bg-gray-700 hover:text-teal-700 dark:hover:text-teal-400"
                     }
                     onClick={handleLinkClick}
                   >
-                    Post Article
+                    <span className="flex items-center gap-2 ">
+                      <IoIosAddCircleOutline size={25} /> Post Article
+                    </span>
+                  </NavLink>
+
+                  <NavLink
+                    className={({ isActive }) =>
+                      isActive
+                        ? "block py-2 text-sm font-medium text-teal-700 dark:text-teal-400 hover:bg-teal-70 dark:hover:bg-gray-700"
+                        : "block py-2 text-sm font-medium text-gray-700 dark:text-gray-300 hover:bg-teal-70 dark:hover:bg-gray-700 hover:text-teal-700 dark:hover:text-teal-400"
+                    }
+                    onClick={handleLinkClick}
+                  >
+                    <span className="flex items-center gap-2 ">
+                      <CgProfile size={25} /> My Profiles
+                    </span>
                   </NavLink>
                   <button className="flex items-center space-x-3 focus:outline-none cursor-pointer my-4 w-full">
                     <img

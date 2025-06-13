@@ -103,7 +103,7 @@ const AboutUsPage = () => {
             Join Our Community
           </Link>
           <Link
-            to="/articles"
+            to="/all-articles"
             className="flex items-center justify-center gap-2 px-6 py-3 border border-teal-600 hover:border-teal-700 text-teal-600 rounded-lg font-medium transition-all duration-300 shadow-sm"
           >
             <BookOpen className="h-5 w-5" />

@@ -63,7 +63,6 @@ const MyArticlesPage = () => {
     const form = e.target;
     const formData = new FormData(form);
     const updatedData = Object.fromEntries(formData.entries());
-    console.log(updatedData);
     updatedData.articleTags = tags;
 
     try {
