@@ -27,7 +27,6 @@ const ArticleDetails = () => {
       try {
         const response = await axiosSecure.get(`/articles/${id}`);
         const articleData = await response.data;
-        console.log(articleData);
         setSingleArticle(articleData);
         setLoading(false);
       } catch (err) {
@@ -35,6 +34,7 @@ const ArticleDetails = () => {
       }
     };
     fetchSingleArticle();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [id]);
 
   return (
