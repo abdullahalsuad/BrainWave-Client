@@ -2,16 +2,22 @@ import { FaLongArrowAltLeft } from "react-icons/fa";
 import { Link, useParams } from "react-router";
 
 import useAxiosSecure from "../../hooks/useAxiosSecure";
-import { useEffect, useState } from "react";
+import { use, useEffect, useState } from "react";
 
 import ArticleDetailsCard from "../../components/articles-details/ArticleDetailsCard";
 import ArticleDetailSkeleton from "../../components/loading/ArticleDetailSkeleton";
+import { ArticleContext } from "../../context/ArticlesProvider";
+import { AuthContext } from "../../context/AuthProvider";
 
 const ArticleDetails = () => {
   const [loading, setLoading] = useState(true);
   const [singleArticle, setSingleArticle] = useState();
+  const [isLiked, setIsLiked] = useState(false);
+
   const axiosSecure = useAxiosSecure();
   const { id } = useParams();
+  const { setAllArticles } = use(ArticleContext);
+  const { user } = use(AuthContext);
 
   // scroll to top
   useEffect(() => {
@@ -43,7 +49,41 @@ const ArticleDetails = () => {
     fetchSingleArticle();
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [id]);
-  console.log(singleArticle);
+
+  // handling like
+  useEffect(() => {
+    if (singleArticle && user) {
+      const userHasLiked = singleArticle.articleLikes.some(
+        (like) => like.userEmail === user.email
+      );
+      setIsLiked(userHasLiked);
+    }
+  }, [singleArticle, user]);
+
+  const handleLike = async () => {
+    try {
+      const response = await axiosSecure.patch(
+        `/articles/like/${singleArticle._id}`,
+        {
+          userEmail: user.email,
+        }
+      );
+
+      const updatedArticle = response.data;
+      console.log(updatedArticle);
+
+      // Update UI
+      // setAllArticles((prev) => [...prev, updatedArticle]);
+      setSingleArticle(updatedArticle);
+      setIsLiked(
+        updatedArticle.articleLikes.some(
+          (like) => like.userEmail === user.email
+        )
+      );
+    } catch (error) {
+      console.error("Error updating like:", error);
+    }
+  };
 
   return (
     <>
@@ -64,6 +104,8 @@ const ArticleDetails = () => {
           <ArticleDetailsCard
             formatDate={formatDate}
             singleArticle={singleArticle}
+            handleLike={handleLike}
+            isLiked={isLiked}
           />
         </>
       )}

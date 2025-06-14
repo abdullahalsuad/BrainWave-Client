@@ -1,8 +1,12 @@
+import { FaHeart, FaRegHeart } from "react-icons/fa";
 import CommentSection from "./CommentSection";
 
-const ArticleDetailsCard = ({ singleArticle, formatDate }) => {
-  console.log(singleArticle);
-
+const ArticleDetailsCard = ({
+  singleArticle,
+  formatDate,
+  handleLike,
+  isLiked,
+}) => {
   return (
     <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8  mb-60">
       <div className="transition-colors duration-500 mb-10">
@@ -39,6 +43,12 @@ const ArticleDetailsCard = ({ singleArticle, formatDate }) => {
               {singleArticle.articleTitle}
             </h1>
 
+            <div className="my-6">
+              <span className="bg-sky-200 text-black px-4 py-2 rounded font-semibold">
+                Category :- {singleArticle.articleCategory}
+              </span>
+            </div>
+
             {/* Author and Date */}
             <div className="lg:flex md:flex items-center space-x-2 text-gray-500 dark:text-gray-400 mb-4">
               <div className="flex items-center gap-4">
@@ -57,23 +67,22 @@ const ArticleDetailsCard = ({ singleArticle, formatDate }) => {
               <span>24 comments</span>
 
               {/* 👍 Like Button (added) */}
-              <button className="ml-4 flex items-center gap-2 px-3 py-1 rounded-full border border-pink-600 text-pink-600 hover:bg-pink-600 hover:text-white transition-colors duration-300 cursor-pointer">
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  fill="currentColor"
-                  viewBox="0 0 24 24"
-                  className="w-5 h-5"
-                >
-                  <path
-                    d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 
-                       2 5.42 4.42 3 7.5 3c1.74 0 
-                       3.41 0.81 4.5 2.09C13.09 3.81 
-                       14.76 3 16.5 3 19.58 3 22 5.42 
-                       22 8.5c0 3.78-3.4 6.86-8.55 
-                       11.54L12 21.35z"
-                  />
-                </svg>
-                <span className="text-sm font-medium">Like</span>
+              <button
+                onClick={handleLike}
+                className="ml-4 flex items-center gap-2 px-3 py-1 rounded-full border border-pink-700 text-pink-700 hover:bg-pink-700 hover:text-white transition-colors duration-300 cursor-pointer"
+              >
+                {isLiked ? (
+                  <>
+                    <FaHeart />
+                    <span className="text-sm font-medium">Liked</span>
+                  </>
+                ) : (
+                  <>
+                    {" "}
+                    <FaRegHeart />{" "}
+                    <span className="text-sm font-medium">Like</span>
+                  </>
+                )}
               </button>
             </div>
           </div>
