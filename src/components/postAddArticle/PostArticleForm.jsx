@@ -175,19 +175,19 @@ const PostArticleForm = ({
               <label htmlFor="tags" className="block font-medium mb-2">
                 Tags
               </label>
-              <div className="lg:flex mb-2">
+              <div className="mb-2">
                 <input
                   type="text"
                   value={newTag}
                   onChange={(e) => setNewTag(e.target.value)}
                   onKeyPress={(e) => e.key === "Enter" && handleAddTag()}
                   placeholder="Add tag..."
-                  className="flex-1 px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-teal-400 dark:border-gray-700 dark:bg-gray-900 dark:text-white"
+                  className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-teal-400 dark:border-gray-700 dark:bg-gray-900 dark:text-white"
                 />
                 <button
                   type="button"
                   onClick={handleAddTag}
-                  className="px-4 py-2 bg-gray-100 border border-gray-300 rounded-md hover:bg-gray-200 dark:bg-gray-700 dark:hover:bg-gray-600 dark:text-white transition duration-200 flex items-center gap-1 cursor-pointer lg:ml-4 mt-4"
+                  className="px-4 py-2 bg-gray-100 border border-gray-300 rounded-md hover:bg-gray-200 dark:bg-gray-700 dark:hover:bg-gray-600 dark:text-white transition duration-200 flex items-center gap-1 cursor-pointer  mt-4"
                 >
                   <IoMdAdd />
                   Add

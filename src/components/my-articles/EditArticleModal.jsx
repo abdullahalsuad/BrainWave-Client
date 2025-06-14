@@ -163,19 +163,19 @@ const EditArticleModal = ({ article, onClose, handleSave }) => {
                   >
                     Tags
                   </label>
-                  <div className="lg:flex mb-2">
+                  <div className="mb-2 ">
                     <input
                       type="text"
                       value={newTag}
                       onChange={(e) => setNewTag(e.target.value)}
                       onKeyPress={(e) => e.key === "Enter" && handleAddTag()}
                       placeholder="Add tag..."
-                      className="lg:flex-1 px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-teal-500 dark:border-gray-600 dark:bg-gray-800 dark:text-white transition"
+                      className="lg:flex-1 w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-teal-500 dark:border-gray-600 dark:bg-gray-800 dark:text-white transition"
                     />
                     <button
                       type="button"
                       onClick={handleAddTag}
-                      className="px-4 py-2 lg:ml-2 mt-4 bg-gray-100 border border-gray-300 text-gray-700 dark:bg-gray-900 dark:border-gray-700 dark:text-gray-300 rounded-md hover:bg-gray-200 dark:hover:bg-gray-800 transition flex items-center gap-1"
+                      className="px-4 py-2  mt-4 bg-gray-100 border border-gray-300 text-gray-700 dark:bg-gray-900 dark:border-gray-700 dark:text-gray-300 rounded-md hover:bg-gray-200 dark:hover:bg-gray-800 transition flex items-center gap-1"
                     >
                       <IoMdAdd /> Add
                     </button>

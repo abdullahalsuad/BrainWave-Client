@@ -1,5 +1,6 @@
 import { Edit, Trash2 } from "lucide-react";
-import { FaRegEye } from "react-icons/fa";
+import { GrLike } from "react-icons/gr";
+import { FaRegCommentAlt, FaRegEye } from "react-icons/fa";
 import { Link } from "react-router";
 
 const SingleArticlesCard = ({ article, handleRemove, handleEdit }) => {
@@ -33,18 +34,24 @@ const SingleArticlesCard = ({ article, handleRemove, handleEdit }) => {
               : article.articleContent}
           </p>
           <div className="flex flex-col sm:flex-row sm:justify-between text-sm text-gray-500 dark:text-gray-400">
-            <div className="flex gap-4">
+            <div className="flex gap-4 items-center font-bold text-gray-800 dark:text-white">
               <span>{formatDate(article.createdAt)}</span>
-              <span className="flex gap-1">
-                <p className="text-teal-400">{article.totalArticleLike}</p>{" "}
-                Likes
+              <span className="flex gap-2 items-center">
+                <p className="text-teal-500 dark:text-teal-500 font-bold  text-md">
+                  <GrLike size={15} />
+                </p>
+                {article.totalArticleLike}
               </span>
 
-              <span className="flex gap-1">
-                <p className="text-teal-400">{article.totalArticleLike}</p>{" "}
-                comments
+              <span className="flex gap-2 items-center">
+                <p className="text-teal-500 dark:text-teal-500 font-bold  text-md">
+                  <FaRegCommentAlt />
+                </p>
+                {article.totalArticleComment}
               </span>
             </div>
+
+            {/* Action Button */}
             <div className="flex gap-2 mt-2 sm:mt-0">
               <button
                 onClick={() => handleEdit(article)}

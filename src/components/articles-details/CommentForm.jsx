@@ -1,6 +1,4 @@
-import React from "react";
-
-const CommentForm = () => {
+const CommentForm = ({ isLoading }) => {
   return (
     <>
       <textarea
@@ -14,7 +12,7 @@ const CommentForm = () => {
           type="submit"
           className="bg-teal-500 text-white px-4 py-2 rounded-md hover:bg-teal-600 transition duration-300 ease-in-out cursor-pointer"
         >
-          Post Comment
+          {isLoading ? "Posting......." : " Post Comment"}
         </button>
       </div>
     </>

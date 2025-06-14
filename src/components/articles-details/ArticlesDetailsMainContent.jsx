@@ -60,7 +60,7 @@ const ArticlesDetailsMainContent = ({
           <span>•</span>
           <span>{singleArticle.totalArticleLike} likes</span>
           <span>•</span>
-          <span>24 comments</span>
+          <span>{singleArticle.totalArticleComment} comments</span>
 
           {/* 👍 Like Button (added) */}
           <button

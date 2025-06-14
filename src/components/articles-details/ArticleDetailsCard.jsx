@@ -68,7 +68,12 @@ const ArticleDetailsCard = ({
       </div>
 
       {/* Comments Section */}
-      <CommentSection singleArticle={singleArticle} user={user} />
+      <CommentSection
+        singleArticle={singleArticle}
+        user={user}
+        setSingleArticle={setSingleArticle}
+        setAllArticles={setAllArticles}
+      />
 
       {/* Related Articles */}
     </div>

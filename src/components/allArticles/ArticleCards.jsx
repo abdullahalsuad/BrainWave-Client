@@ -30,7 +30,7 @@ const ArticleCards = ({ article }) => {
           </div>
         </div>
         <h2 className="text-xl font-bold text-gray-900 dark:text-white mb-2">
-          {article.title}
+          {article.articleTitle}
         </h2>
         <p className="text-gray-600 dark:text-gray-300 mb-4">
           {article.articleContent.length > 200
@@ -68,8 +68,7 @@ const ArticleCards = ({ article }) => {
             <span className="mr-2">
               <FaRegComment size={18} />
             </span>
-            {/* {article.comments} */}
-            10
+            {article.totalArticleComment}
           </span>
         </div>
 
