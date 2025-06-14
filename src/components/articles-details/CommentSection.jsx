@@ -1,23 +1,24 @@
 import { FaComment } from "react-icons/fa";
+import CommentForm from "./CommentForm";
 
 const CommentSection = () => {
+  // handle comment
+  const handleComment = async (e) => {
+    e.preventDefault();
+    console.log("hello");
+  };
+
   return (
     <div className="bg-white dark:bg-gray-800 rounded-lg shadow-md p-6 mb-8">
       <h3 className="text-lg font-bold mb-4 flex items-center">
         <FaComment className="h-4 w-4 inline-block mr-2" />
         Comments (3)
       </h3>
-      <form className="mb-4">
-        <textarea
-          placeholder="Share your thoughts..."
-          className="w-full border border-gray-300 dark:border-gray-600 rounded-md p-2 focus:outline-none focus:ring-2 focus:ring-teal-400 dark:focus:ring-teal-600 resize-none"
-        ></textarea>
-        <div className="mt-2 flex justify-end">
-          <button className="bg-teal-500 text-white px-4 py-2 rounded-md hover:bg-teal-600 transition duration-300 ease-in-out cursor-pointer">
-            Post Comment
-          </button>
-        </div>
+      <form className="mb-4" onSubmit={handleComment}>
+        <CommentForm />
       </form>
+
+      {/* all comment */}
       <div className="my-4 border border-gray-200 p-4 rounded-md shadow-md bg-sky-50 dark:bg-gray-700">
         <div className="flex items-center mb-4 mt-4 ">
           <div>
