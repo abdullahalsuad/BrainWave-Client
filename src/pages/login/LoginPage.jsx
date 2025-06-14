@@ -1,4 +1,4 @@
-import { use, useState } from "react";
+import { use, useEffect, useState } from "react";
 import LoginForm from "../../components/authentication/LoginForm";
 import { toast } from "react-toastify";
 import { useLocation, useNavigate } from "react-router";
@@ -12,6 +12,11 @@ const LoginPage = () => {
   const navigate = useNavigate();
   const [error, setError] = useState(null);
   const [isLoading, setIsLoading] = useState(false);
+
+  // scroll to top
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
 
   const handleSignin = async (e) => {
     e.preventDefault();

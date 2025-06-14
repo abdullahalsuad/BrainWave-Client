@@ -1,4 +1,4 @@
-import { use, useState } from "react";
+import { use, useEffect, useState } from "react";
 
 import PostArticleForm from "../../components/postAddArticle/PostArticleForm";
 import { toast } from "react-toastify";
@@ -18,6 +18,11 @@ const PostArticlePage = () => {
   const displayName = user?.displayName;
   const creatorEmail = user?.email;
   const profilePhotoURL = user?.photoURL;
+
+  // scroll to top
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
 
   // add tag
   const handleAddTag = () => {
@@ -65,7 +70,7 @@ const PostArticlePage = () => {
         throw new Error(`Server responded with status: ${response.status}`);
       }
 
-      if (response.data._id) {
+      if (response.status === 201) {
         toast.success("Article added successfully!");
         // UI update
         e.target.reset();

@@ -68,7 +68,7 @@ const ArticleDetailsCard = ({
       </div>
 
       {/* Comments Section */}
-      <CommentSection />
+      <CommentSection singleArticle={singleArticle} user={user} />
 
       {/* Related Articles */}
     </div>

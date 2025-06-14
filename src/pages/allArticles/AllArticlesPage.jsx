@@ -1,4 +1,4 @@
-import { use } from "react";
+import { use, useEffect } from "react";
 import SearchBarAndFilters from "../../components/allArticles/SearchBarAndFilters";
 import ArticleCards from "../../components/allArticles/ArticleCards";
 import { ArticleContext } from "../../context/ArticlesProvider";
@@ -6,6 +6,11 @@ import AllArticleCardSkeleton from "../../components/loading/AllArticleCardSkele
 
 const AllArticlesPage = () => {
   const { allArticles, loading } = use(ArticleContext);
+
+  // scroll to top
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
 
   // Mock Data
   const popularTags = [

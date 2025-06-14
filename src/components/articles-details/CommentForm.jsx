@@ -4,6 +4,7 @@ const CommentForm = () => {
   return (
     <>
       <textarea
+        required
         placeholder="Share your thoughts..."
         name="comment"
         className="w-full border border-gray-300 dark:border-gray-600 rounded-md p-2 focus:outline-none focus:ring-2 focus:ring-teal-400 dark:focus:ring-teal-600 resize-none"

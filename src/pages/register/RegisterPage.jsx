@@ -1,4 +1,4 @@
-import { use, useState } from "react";
+import { use, useEffect, useState } from "react";
 import RegisterForm from "../../components/authentication/RegisterForm";
 import { useLocation, useNavigate } from "react-router";
 import { AuthContext } from "../../context/AuthProvider";
@@ -13,6 +13,11 @@ const RegisterPage = () => {
 
   const { createUser, setUser, updateUser, signInWithGoogle } =
     use(AuthContext);
+
+  // scroll to top
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
 
   const handleRegistration = async (e) => {
     e.preventDefault();

@@ -1,11 +1,49 @@
 import { FaComment } from "react-icons/fa";
 import CommentForm from "./CommentForm";
+import { useState } from "react";
+import useAxiosSecure from "../../hooks/useAxiosSecure";
 
-const CommentSection = () => {
+const CommentSection = ({ singleArticle, user }) => {
+  const [isLoading, setIsLoading] = useState(false);
+
+  const axiosSecure = useAxiosSecure();
+
   // handle comment
   const handleComment = async (e) => {
     e.preventDefault();
-    console.log("hello");
+    setIsLoading(true);
+
+    // Collect user input values from the form elements
+    const form = e.target;
+    const formData = new FormData(form);
+    const formValues = Object.fromEntries(formData.entries());
+
+    // getting logged in user info
+    const userName = user.displayName;
+    const userEmail = user.email;
+    const userAvatar = user.photoURL;
+
+    const newComment = {
+      ...formValues,
+      userName,
+      userEmail,
+      userAvatar,
+    };
+
+    // send to backed
+    try {
+      const response = await axiosSecure.patch(
+        `/articles/comment/${singleArticle._id}`,
+        newComment
+      );
+
+      if (response.status === 201) {
+        e.target.reset();
+        setIsLoading(false);
+      }
+    } catch (err) {
+      console.log("Failed to comment", err);
+    }
   };
 
   return (
@@ -15,7 +53,7 @@ const CommentSection = () => {
         Comments (3)
       </h3>
       <form className="mb-4" onSubmit={handleComment}>
-        <CommentForm />
+        <CommentForm isLoading={isLoading} />
       </form>
 
       {/* all comment */}
