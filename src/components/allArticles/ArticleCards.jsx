@@ -62,7 +62,7 @@ const ArticleCards = ({ article }) => {
             <span className="mr-2">
               <FcLike size={20} />
             </span>
-            {article.articleLike}
+            {article.totalArticleLike}
           </span>
           <span className="text-sm text-gray-600 dark:text-gray-300 flex items-center">
             <span className="mr-2">

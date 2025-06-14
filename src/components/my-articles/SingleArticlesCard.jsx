@@ -36,11 +36,13 @@ const SingleArticlesCard = ({ article, handleRemove, handleEdit }) => {
             <div className="flex gap-4">
               <span>{formatDate(article.createdAt)}</span>
               <span className="flex gap-1">
-                <p className="text-teal-400">{article.articleLike}</p> Likes
+                <p className="text-teal-400">{article.totalArticleLike}</p>{" "}
+                Likes
               </span>
 
               <span className="flex gap-1">
-                <p className="text-teal-400">{article.articleLike}</p> comments
+                <p className="text-teal-400">{article.totalArticleLike}</p>{" "}
+                comments
               </span>
             </div>
             <div className="flex gap-2 mt-2 sm:mt-0">

@@ -62,7 +62,7 @@ const ArticleDetailsCard = ({
               <span>•</span>
               <span>{formatDate(singleArticle.createdAt)}</span>
               <span>•</span>
-              <span>{singleArticle.articleLike} likes</span>
+              <span>{singleArticle.totalArticleLike} likes</span>
               <span>•</span>
               <span>24 comments</span>
 

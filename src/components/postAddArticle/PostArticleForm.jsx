@@ -40,7 +40,7 @@ const PostArticleForm = ({
 
           <div className="mb-5">
             <label htmlFor="thumbnail" className="block font-medium mb-2">
-              Thumbnail URL
+              Thumbnail URL *
             </label>
             <input
               required
