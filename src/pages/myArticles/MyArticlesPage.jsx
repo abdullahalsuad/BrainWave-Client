@@ -2,7 +2,7 @@ import StatsCards from "../../components/my-articles/StatsCards";
 import NoArticlesFound from "../../components/my-articles/NoArticlesFound";
 import SingleArticlesCard from "../../components/my-articles/SingleArticlesCard";
 import MyArticlesHeader from "../../components/my-articles/MyArticlesHeader";
-import { use, useState } from "react";
+import { use, useEffect, useState } from "react";
 import { ArticleContext } from "../../context/ArticlesProvider";
 import ArticleCardSkeleton from "../../components/loading/ArticleCardSkeleton";
 import useAxiosSecure from "../../hooks/useAxiosSecure";
@@ -16,6 +16,11 @@ const MyArticlesPage = () => {
 
   const { myArticles, loading, setAllArticles, setMyArticles } =
     use(ArticleContext);
+
+  // scroll to top
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
 
   // handling delete articles
   const handleRemove = (id) => {
