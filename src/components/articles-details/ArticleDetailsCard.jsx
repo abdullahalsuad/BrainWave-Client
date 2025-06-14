@@ -69,7 +69,7 @@ const ArticleDetailsCard = ({
               {/* 👍 Like Button (added) */}
               <button
                 onClick={handleLike}
-                className="ml-4 flex items-center gap-2 px-3 py-1 rounded-full border border-pink-700 text-pink-700 hover:bg-pink-700 hover:text-white transition-colors duration-300 cursor-pointer"
+                className="ml-4 flex items-center gap-2 px-3 py-1 rounded-full border border-pink-700 text-pink-700  transition-colors duration-300 cursor-pointer"
               >
                 {isLiked ? (
                   <>

@@ -73,7 +73,11 @@ const ArticleDetails = () => {
       console.log(updatedArticle);
 
       // Update UI
-      // setAllArticles((prev) => [...prev, updatedArticle]);
+      setAllArticles((prev) =>
+        prev.map((article) =>
+          article._id === updatedArticle._id ? updatedArticle : article
+        )
+      );
       setSingleArticle(updatedArticle);
       setIsLiked(
         updatedArticle.articleLikes.some(
