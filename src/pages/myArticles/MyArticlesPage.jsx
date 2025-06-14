@@ -79,11 +79,11 @@ const MyArticlesPage = () => {
 
         //ui update
         setMyArticles((prev) =>
-          prev.map((a) => (a._id === id ? updatedArticle : a))
+          prev.map((article) => (article._id === id ? updatedArticle : article))
         );
 
         setAllArticles((prev) =>
-          prev.map((a) => (a._id === id ? updatedArticle : a))
+          prev.map((article) => (article._id === id ? updatedArticle : article))
         );
         setEditingArticle(null);
       }
