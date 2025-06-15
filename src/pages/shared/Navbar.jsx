@@ -42,18 +42,17 @@ const Navbar = () => {
   };
 
   return (
-    <nav className="fixed top-0 left-0 w-full bg-white dark:bg-gray-800 shadow-lg z-50 transition-colors duration-300">
+    <nav className="fixed top-0 left-0 w-full bg-white/30 dark:bg-gray-800/30 backdrop-blur shadow-lg z-50 transition-colors duration-300">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between h-16">
           {/* Logo */}
           <div className="flex items-center justify-center">
-            <BookOpen className="h-8 w-8" />{" "}
+            <BookOpen className="h-8 w-8 mr-2" />
             <NavLink
               to="/"
-              className="text-2xl font-bold text-blue-950 dark:text-blue-400 tracking-tight"
+              className="text-2xl font-bold text-blue-400 tracking-tight"
             >
-              Brain{" "}
-              <span className="text-teal-700 dark:text-teal-400">Wave</span>
+              Brain <span className="text-teal-400">Wave</span>
             </NavLink>
           </div>
 
@@ -63,8 +62,8 @@ const Navbar = () => {
               to="/"
               className={({ isActive }) =>
                 isActive
-                  ? "text-base font-medium text-teal-700 dark:text-teal-400"
-                  : "text-base font-medium text-gray-700 dark:text-gray-300 hover:text-teal-700 dark:hover:text-teal-400 transition"
+                  ? "text-base font-medium text-teal-300"
+                  : "text-base font-medium text-gray-300  hover:text-teal-400 transition"
               }
             >
               Home
@@ -73,8 +72,8 @@ const Navbar = () => {
               to="/all-articles"
               className={({ isActive }) =>
                 isActive
-                  ? "text-base font-medium text-teal-700 dark:text-teal-400"
-                  : "text-base font-medium text-gray-700 dark:text-gray-300 hover:text-teal-700 dark:hover:text-teal-400 transition"
+                  ? "text-base font-medium text-teal-400"
+                  : "text-base font-medium text-gray-300  hover:text-teal-400 transition"
               }
             >
               All Articles
@@ -85,8 +84,8 @@ const Navbar = () => {
                 to="/my-articles"
                 className={({ isActive }) =>
                   isActive
-                    ? "text-base font-medium text-teal-700 dark:text-teal-400"
-                    : "text-base font-medium text-gray-700 dark:text-gray-300 hover:text-teal-700 dark:hover:text-teal-400 transition"
+                    ? "text-base font-medium text-teal-400"
+                    : "text-base font-medium text-gray-300  hover:text-teal-400 transition"
                 }
               >
                 My Articles
@@ -95,8 +94,8 @@ const Navbar = () => {
                 to="/post-article"
                 className={({ isActive }) =>
                   isActive
-                    ? "text-base font-medium text-teal-700 dark:text-teal-400"
-                    : "text-base font-medium text-gray-700 dark:text-gray-300 hover:text-teal-700 dark:hover:text-teal-400 transition"
+                    ? "text-base font-medium text-teal-400"
+                    : "text-base font-medium text-gray-300  hover:text-teal-400 transition"
                 }
               >
                 Post Article
@@ -107,8 +106,8 @@ const Navbar = () => {
               to="/about-us"
               className={({ isActive }) =>
                 isActive
-                  ? "text-base font-medium text-teal-700 dark:text-teal-400"
-                  : "text-base font-medium text-gray-700 dark:text-gray-300 hover:text-teal-700 dark:hover:text-teal-400 transition"
+                  ? "text-base font-medium text-teal-400"
+                  : "text-base font-medium text-gray-300  hover:text-teal-400 transition"
               }
             >
               About Us
@@ -119,7 +118,7 @@ const Navbar = () => {
           <div className="hidden md:flex items-center">
             <button
               onClick={toggleTheme}
-              className="mr-4 p-2 rounded-full text-gray-700 dark:text-gray-300 hover:bg-gray-200 dark:hover:bg-gray-700 transition cursor-pointer"
+              className="mr-4 p-2 rounded-full text-gray-300 hover:bg-gray-200 dark:hover:bg-gray-700 transition cursor-pointer"
               aria-label="Toggle Dark Mode"
             >
               {theme === "dark" ? <CiLight size={24} /> : <CiDark size={24} />}
@@ -190,8 +189,8 @@ const Navbar = () => {
                         to="/my-articles"
                         className={({ isActive }) =>
                           isActive
-                            ? "block px-4 py-3 text-sm font-medium text-teal-700 dark:text-teal-400 hover:bg-teal-70 dark:hover:bg-gray-700"
-                            : "block px-4 py-3 text-sm font-medium text-gray-700 dark:text-gray-300 hover:bg-teal-70 dark:hover:bg-gray-700 hover:text-teal-700 dark:hover:text-teal-400"
+                            ? "block px-4 py-3 text-sm font-medium text-teal-400 hover:bg-teal-70 dark:hover:bg-gray-700"
+                            : "block px-4 py-3 text-sm font-medium text-gray-300 hover:bg-teal-70 dark:hover:bg-gray-700  hover:text-teal-400"
                         }
                         onClick={() => setIsUserMenuOpen(false)}
                       >
@@ -204,8 +203,8 @@ const Navbar = () => {
                         to="/post-article"
                         className={({ isActive }) =>
                           isActive
-                            ? "block px-4 py-3 text-sm font-medium text-teal-700 dark:text-teal-400 hover:bg-teal-70 dark:hover:bg-gray-700"
-                            : "block px-4 py-3 text-sm font-medium text-gray-700 dark:text-gray-300 hover:bg-teal-70 dark:hover:bg-gray-700 hover:text-teal-700 dark:hover:text-teal-400"
+                            ? "block px-4 py-3 text-sm font-medium text-teal-400 hover:bg-teal-70 dark:hover:bg-gray-700"
+                            : "block px-4 py-3 text-sm font-medium text-gray-300 hover:bg-teal-70 dark:hover:bg-gray-700  hover:text-teal-400"
                         }
                         onClick={() => setIsUserMenuOpen(false)}
                       >
@@ -218,8 +217,8 @@ const Navbar = () => {
                         to="/my-articles"
                         className={({ isActive }) =>
                           isActive
-                            ? "block px-4 py-3 text-sm font-medium text-teal-700 dark:text-teal-400 hover:bg-teal-70 dark:hover:bg-gray-700"
-                            : "block px-4 py-3 text-sm font-medium text-gray-700 dark:text-gray-300 hover:bg-teal-70 dark:hover:bg-gray-700 hover:text-teal-700 dark:hover:text-teal-400"
+                            ? "block px-4 py-3 text-sm font-medium text-teal-400 hover:bg-teal-70 dark:hover:bg-gray-700"
+                            : "block px-4 py-3 text-sm font-medium text-gray-300 hover:bg-teal-70 dark:hover:bg-gray-700  hover:text-teal-400"
                         }
                         onClick={() => setIsUserMenuOpen(false)}
                       >
@@ -248,14 +247,14 @@ const Navbar = () => {
           <div className="md:hidden flex items-center">
             <button
               onClick={toggleTheme}
-              className="text-gray-700 dark:text-gray-300 focus:outline-none mr-3 cursor-pointer"
+              className="text-gray-900 dark:text-gray-300 focus:outline-none mr-3 cursor-pointer"
               aria-label="Toggle Dark Mode"
             >
               {theme === "dark" ? <CiLight size={24} /> : <CiDark size={24} />}
             </button>
             <button
               onClick={() => setIsMenuOpen(!isMenuOpen)}
-              className="text-gray-700 dark:text-gray-300 focus:outline-none"
+              className="text-gray-900 dark:text-gray-300 focus:outline-none"
             >
               <svg
                 className="h-6 w-6"
@@ -292,8 +291,8 @@ const Navbar = () => {
               to="/"
               className={({ isActive }) =>
                 isActive
-                  ? "py-3 text-base font-medium text-teal-700 dark:text-teal-400"
-                  : "py-3 text-base font-medium text-gray-700 dark:text-gray-300 hover:text-teal-700 dark:hover:text-teal-400"
+                  ? "py-3 text-base font-medium text-teal-400"
+                  : "py-3 text-base font-medium text-gray-900 dark:text-gray-300  hover:text-teal-400"
               }
               onClick={handleLinkClick}
             >
@@ -303,8 +302,8 @@ const Navbar = () => {
               to="/all-articles"
               className={({ isActive }) =>
                 isActive
-                  ? "py-3 text-base font-medium text-teal-700 dark:text-teal-400"
-                  : "py-3 text-base font-medium text-gray-700 dark:text-gray-300 hover:text-teal-700 dark:hover:text-teal-400"
+                  ? "py-3 text-base font-medium text-teal-400"
+                  : "py-3 text-base font-medium text-gray-900 dark:text-gray-300  hover:text-teal-400"
               }
               onClick={handleLinkClick}
             >
@@ -314,8 +313,8 @@ const Navbar = () => {
               to="/about-us"
               className={({ isActive }) =>
                 isActive
-                  ? "py-3 text-base font-medium text-teal-700 dark:text-teal-400"
-                  : "py-3 text-base font-medium text-gray-700 dark:text-gray-300 hover:text-teal-700 dark:hover:text-teal-400"
+                  ? "py-3 text-base font-medium text-teal-400"
+                  : "py-3 text-base font-medium text-gray-900 dark:text-gray-300  hover:text-teal-400"
               }
               onClick={handleLinkClick}
             >
@@ -328,8 +327,8 @@ const Navbar = () => {
                     to="/my-articles"
                     className={({ isActive }) =>
                       isActive
-                        ? "block py-2 text-sm font-medium text-teal-700 dark:text-teal-400 hover:bg-teal-70 dark:hover:bg-gray-700"
-                        : "block py-2  text-sm font-medium text-gray-700 dark:text-gray-300 hover:bg-teal-70 dark:hover:bg-gray-700 hover:text-teal-700 dark:hover:text-teal-400"
+                        ? "block py-2 text-sm font-medium text-teal-400 hover:bg-teal-70 dark:hover:bg-gray-700"
+                        : "block py-2  text-sm font-medium text-gray-900 dark:text-gray-300 hover:bg-teal-70 dark:hover:bg-gray-700  hover:text-teal-400"
                     }
                     onClick={handleLinkClick}
                   >
@@ -342,8 +341,8 @@ const Navbar = () => {
                     to="/post-article"
                     className={({ isActive }) =>
                       isActive
-                        ? "block py-2 text-sm font-medium text-teal-700 dark:text-teal-400 hover:bg-teal-70 dark:hover:bg-gray-700"
-                        : "block py-2 text-sm font-medium text-gray-700 dark:text-gray-300 hover:bg-teal-70 dark:hover:bg-gray-700 hover:text-teal-700 dark:hover:text-teal-400"
+                        ? "block py-2 text-sm font-medium text-teal-400 hover:bg-teal-70 dark:hover:bg-gray-700"
+                        : "block py-2 text-sm font-medium text-gray-900 dark:text-gray-300 hover:bg-teal-70 dark:hover:bg-gray-700  hover:text-teal-400"
                     }
                     onClick={handleLinkClick}
                   >
@@ -356,8 +355,8 @@ const Navbar = () => {
                     to="/my-articles"
                     className={({ isActive }) =>
                       isActive
-                        ? "block py-2 text-sm font-medium text-teal-700 dark:text-teal-400 hover:bg-teal-70 dark:hover:bg-gray-700"
-                        : "block py-2 text-sm font-medium text-gray-700 dark:text-gray-300 hover:bg-teal-70 dark:hover:bg-gray-700 hover:text-teal-700 dark:hover:text-teal-400"
+                        ? "block py-2 text-sm font-medium text-teal-400 hover:bg-teal-70 dark:hover:bg-gray-700"
+                        : "block py-2 text-sm font-medium text-gray-900 dark:text-gray-300 hover:bg-teal-70 dark:hover:bg-gray-700  hover:text-teal-400"
                     }
                     onClick={handleLinkClick}
                   >
