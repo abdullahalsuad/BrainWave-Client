@@ -6,6 +6,7 @@ import { toast } from "react-toastify";
 const EditArticleModal = ({ article, onClose, handleSave }) => {
   const [tags, setTags] = useState(article.articleTags || []);
   const [newTag, setNewTag] = useState("");
+  console.log(article);
 
   const handleAddTag = () => {
     if (!newTag.trim()) return toast.warning("Empty tag");
@@ -59,7 +60,7 @@ const EditArticleModal = ({ article, onClose, handleSave }) => {
                   type="text"
                   id="title"
                   name="articleTitle"
-                  defaultValue={article.articleTitle}
+                  defaultValue={article?.articleTitle}
                   placeholder="Enter article title..."
                   className="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-teal-500 dark:border-gray-600 dark:bg-gray-800 dark:text-white transition"
                 />
@@ -123,10 +124,12 @@ const EditArticleModal = ({ article, onClose, handleSave }) => {
                       required
                       id="category"
                       name="articleCategory"
-                      defaultValue={article.articleCategory}
+                      defaultValue={article?.articleCategory || ""}
                       className="appearance-none w-full px-4 py-2 border border-gray-300 rounded-md pr-10 focus:outline-none focus:ring-2 focus:ring-teal-500 dark:border-gray-600 dark:bg-gray-800 dark:text-white cursor-pointer transition"
                     >
-                      <option value="">Select Category</option>
+                      <option value={article.articleCategory}>
+                        {article.articleCategory}
+                      </option>
                       <option value="Artificial-Intelligence">
                         Artificial Intelligence
                       </option>

@@ -45,9 +45,11 @@ const AllArticlesPage = () => {
                 <AllArticleCardSkeleton />
               </>
             ) : (
-              allArticles.map((article) => (
-                <ArticleCards article={article} key={article._id} />
-              ))
+              [...allArticles]
+                .reverse()
+                .map((article) => (
+                  <ArticleCards article={article} key={article._id} />
+                ))
             )}
           </div>
 

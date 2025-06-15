@@ -215,6 +215,7 @@ const Navbar = () => {
                       </NavLink>
 
                       <NavLink
+                        to="/my-articles"
                         className={({ isActive }) =>
                           isActive
                             ? "block px-4 py-3 text-sm font-medium text-teal-700 dark:text-teal-400 hover:bg-teal-70 dark:hover:bg-gray-700"
@@ -352,6 +353,7 @@ const Navbar = () => {
                   </NavLink>
 
                   <NavLink
+                    to="/my-articles"
                     className={({ isActive }) =>
                       isActive
                         ? "block py-2 text-sm font-medium text-teal-700 dark:text-teal-400 hover:bg-teal-70 dark:hover:bg-gray-700"

@@ -72,9 +72,9 @@ const CommentSection = ({
       </form>
       {/* all comment */}
       {singleArticle.articleComments.length !== 0 ? (
-        singleArticle.articleComments.map((comment) => (
-          <CommentCard comment={comment} key={comment._id} />
-        ))
+        [...singleArticle.articleComments]
+          .reverse()
+          .map((comment) => <CommentCard comment={comment} key={comment._id} />)
       ) : (
         <p className="text-center text-xl my-4 font-medium">
           {" "}

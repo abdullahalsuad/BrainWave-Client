@@ -110,8 +110,7 @@ const MyArticlesPage = () => {
         </div>
       ) : myArticles.length > 0 ? (
         <div className="space-y-6">
-          {myArticles.map((article) => (
-            // single card
+          {[...myArticles].reverse().map((article) => (
             <SingleArticlesCard
               key={article._id}
               article={article}
@@ -119,6 +118,10 @@ const MyArticlesPage = () => {
               handleEdit={handleEdit}
             />
           ))}
+          {/* {myArticles.map((article) => (
+            // single card
+            
+          ))} */}
         </div>
       ) : (
         <NoArticlesFound />
