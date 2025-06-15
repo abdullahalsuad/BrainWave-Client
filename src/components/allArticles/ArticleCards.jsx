@@ -2,18 +2,9 @@ import { FaRegComment } from "react-icons/fa";
 import { FcLike } from "react-icons/fc";
 import { MdDateRange } from "react-icons/md";
 import { Link } from "react-router";
+import { formatDate } from "../../utils/dateformat";
 
 const ArticleCards = ({ article }) => {
-  // date formate
-  const formatDate = (isoString) => {
-    const date = new Date(isoString);
-    return date.toLocaleDateString("en-US", {
-      month: "short",
-      day: "numeric",
-      year: "numeric",
-    });
-  };
-
   return (
     <>
       <div className="bg-white dark:bg-gray-800 rounded-lg shadow-md p-4 mb-6">

@@ -18,16 +18,6 @@ const ArticleDetails = () => {
     window.scrollTo(0, 0);
   }, []);
 
-  // date formate
-  const formatDate = (isoString) => {
-    const date = new Date(isoString);
-    return date.toLocaleDateString("en-US", {
-      month: "short",
-      day: "numeric",
-      year: "numeric",
-    });
-  };
-
   // fetch single article
   useEffect(() => {
     const fetchSingleArticle = async () => {
@@ -47,6 +37,7 @@ const ArticleDetails = () => {
   return (
     <>
       <div className="mt-30 mb-10 w-11/12 mx-auto ">
+        {/* heading */}
         <Link to={"/all-articles"}>
           <button className="text-gray-500 dark:text-gray-400 hover:text-teal-700 dark:hover:text-teal-300 flex items-center gap-4 cursor-pointer">
             <FaLongArrowAltLeft size={20} />
@@ -55,13 +46,12 @@ const ArticleDetails = () => {
         </Link>
       </div>
 
-      {/* Header */}
+      {/* content */}
       {loading ? (
         <ArticleDetailSkeleton />
       ) : (
         <>
           <ArticleDetailsCard
-            formatDate={formatDate}
             singleArticle={singleArticle}
             setSingleArticle={setSingleArticle}
           />

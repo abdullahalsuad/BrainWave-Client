@@ -1,8 +1,9 @@
 import { FaHeart, FaRegHeart } from "react-icons/fa";
+import { formatDate } from "../../utils/dateformat";
 
 const ArticlesDetailsMainContent = ({
   singleArticle,
-  formatDate,
+
   handleLike,
   isLiked,
 }) => {

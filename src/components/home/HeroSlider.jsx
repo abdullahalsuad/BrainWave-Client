@@ -61,7 +61,7 @@ const HeroSlider = () => {
                   {slide.description}
                 </p>
                 <a
-                  href="/articles"
+                  href="/all-articles"
                   className="inline-block bg-teal-500 hover:bg-teal-600 text-white px-6 py-3 rounded-md transition-colors"
                 >
                   Explore Articles

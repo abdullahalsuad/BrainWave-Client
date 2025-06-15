@@ -8,7 +8,7 @@ import useAxiosSecure from "../../hooks/useAxiosSecure";
 const ArticleDetailsCard = ({
   singleArticle,
   setSingleArticle,
-  formatDate,
+  
 }) => {
   const [isLiked, setIsLiked] = useState(false);
 
@@ -61,7 +61,7 @@ const ArticleDetailsCard = ({
         {/* Main Content */}
         <ArticlesDetailsMainContent
           singleArticle={singleArticle}
-          formatDate={formatDate}
+          
           handleLike={handleLike}
           isLiked={isLiked}
         />

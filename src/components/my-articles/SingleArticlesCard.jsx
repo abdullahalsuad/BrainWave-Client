@@ -2,17 +2,10 @@ import { Edit, Trash2 } from "lucide-react";
 import { GrLike } from "react-icons/gr";
 import { FaRegCommentAlt, FaRegEye } from "react-icons/fa";
 import { Link } from "react-router";
+import { formatDate } from "../../utils/dateformat";
 
 const SingleArticlesCard = ({ article, handleRemove, handleEdit }) => {
-  // date formate
-  const formatDate = (isoString) => {
-    const date = new Date(isoString);
-    return date.toLocaleDateString("en-US", {
-      month: "short",
-      day: "numeric",
-      year: "numeric",
-    });
-  };
+ 
 
   return (
     <div className="bg-white dark:bg-gray-800 p-6 rounded-xl shadow border border-gray-200 dark:border-gray-700">

@@ -63,7 +63,7 @@ const Navbar = () => {
               className={({ isActive }) =>
                 isActive
                   ? "text-base font-medium text-teal-300"
-                  : "text-base font-medium text-gray-300  hover:text-teal-400 transition"
+                  : "text-base font-medium text-gray-900 dark:text-gray-300  hover:text-teal-400 transition"
               }
             >
               Home
@@ -73,7 +73,7 @@ const Navbar = () => {
               className={({ isActive }) =>
                 isActive
                   ? "text-base font-medium text-teal-400"
-                  : "text-base font-medium text-gray-300  hover:text-teal-400 transition"
+                  : "text-base font-medium text-gray-900 dark:text-gray-300  hover:text-teal-400 transition"
               }
             >
               All Articles
@@ -85,7 +85,7 @@ const Navbar = () => {
                 className={({ isActive }) =>
                   isActive
                     ? "text-base font-medium text-teal-400"
-                    : "text-base font-medium text-gray-300  hover:text-teal-400 transition"
+                    : "text-base font-medium text-gray-900 dark:text-gray-300  hover:text-teal-400 transition"
                 }
               >
                 My Articles
@@ -95,7 +95,7 @@ const Navbar = () => {
                 className={({ isActive }) =>
                   isActive
                     ? "text-base font-medium text-teal-400"
-                    : "text-base font-medium text-gray-300  hover:text-teal-400 transition"
+                    : "text-base font-medium text-gray-900 dark:text-gray-300  hover:text-teal-400 transition"
                 }
               >
                 Post Article
@@ -107,7 +107,7 @@ const Navbar = () => {
               className={({ isActive }) =>
                 isActive
                   ? "text-base font-medium text-teal-400"
-                  : "text-base font-medium text-gray-300  hover:text-teal-400 transition"
+                  : "text-base font-medium text-gray-900 dark:text-gray-300  hover:text-teal-400 transition"
               }
             >
               About Us
@@ -118,7 +118,7 @@ const Navbar = () => {
           <div className="hidden md:flex items-center">
             <button
               onClick={toggleTheme}
-              className="mr-4 p-2 rounded-full text-gray-300 hover:bg-gray-200 dark:hover:bg-gray-700 transition cursor-pointer"
+              className="mr-4 p-2 rounded-full text-gray-300 dark:text-black bg-gray-900 dark:bg-gray-200 dark:hover:bg-gray-700 transition cursor-pointer"
               aria-label="Toggle Dark Mode"
             >
               {theme === "dark" ? <CiLight size={24} /> : <CiDark size={24} />}
@@ -190,7 +190,7 @@ const Navbar = () => {
                         className={({ isActive }) =>
                           isActive
                             ? "block px-4 py-3 text-sm font-medium text-teal-400 hover:bg-teal-70 dark:hover:bg-gray-700"
-                            : "block px-4 py-3 text-sm font-medium text-gray-300 hover:bg-teal-70 dark:hover:bg-gray-700  hover:text-teal-400"
+                            : "block px-4 py-3 text-sm font-medium text-gray-900 dark:text-gray-300 hover:bg-teal-70 dark:hover:bg-gray-700  hover:text-teal-400"
                         }
                         onClick={() => setIsUserMenuOpen(false)}
                       >
@@ -204,7 +204,7 @@ const Navbar = () => {
                         className={({ isActive }) =>
                           isActive
                             ? "block px-4 py-3 text-sm font-medium text-teal-400 hover:bg-teal-70 dark:hover:bg-gray-700"
-                            : "block px-4 py-3 text-sm font-medium text-gray-300 hover:bg-teal-70 dark:hover:bg-gray-700  hover:text-teal-400"
+                            : "block px-4 py-3 text-sm font-medium text-gray-900 dark:text-gray-300 hover:bg-teal-70 dark:hover:bg-gray-700  hover:text-teal-400"
                         }
                         onClick={() => setIsUserMenuOpen(false)}
                       >
@@ -218,7 +218,7 @@ const Navbar = () => {
                         className={({ isActive }) =>
                           isActive
                             ? "block px-4 py-3 text-sm font-medium text-teal-400 hover:bg-teal-70 dark:hover:bg-gray-700"
-                            : "block px-4 py-3 text-sm font-medium text-gray-300 hover:bg-teal-70 dark:hover:bg-gray-700  hover:text-teal-400"
+                            : "block px-4 py-3 text-sm font-medium text-gray-900 dark:text-gray-300 hover:bg-teal-70 dark:hover:bg-gray-700  hover:text-teal-400"
                         }
                         onClick={() => setIsUserMenuOpen(false)}
                       >

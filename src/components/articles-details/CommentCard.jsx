@@ -1,4 +1,5 @@
 import { BiSolidQuoteSingleLeft } from "react-icons/bi";
+import { formatDate } from "../../utils/dateformat";
 
 const CommentCard = ({ comment }) => {
   return (
@@ -17,7 +18,7 @@ const CommentCard = ({ comment }) => {
           </h4>
 
           <span className="text-gray-500 dark:text-gray-400">
-            {comment.createdAt}
+            {formatDate(comment.createdAt)}
           </span>
         </div>
       </div>
