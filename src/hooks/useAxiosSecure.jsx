@@ -3,7 +3,7 @@ import { use } from "react";
 import { AuthContext } from "../context/AuthProvider";
 
 const instance = axios.create({
-  baseURL: "http://localhost:3000/api/v1",
+  baseURL: "https://brain-wave-server.vercel.app/api/v1",
 });
 
 const useAxiosSecure = () => {

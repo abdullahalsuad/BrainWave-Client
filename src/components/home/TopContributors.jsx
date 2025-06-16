@@ -4,7 +4,7 @@ const TopContributors = () => {
   const topContributors = [
     {
       name: "Sarah Johnson",
-      potion: "1st",
+
       like: "200k",
       comment: "400k",
 
@@ -14,7 +14,7 @@ const TopContributors = () => {
     },
     {
       name: "Michael Chen",
-      potion: "2nd",
+
       like: "100k",
       comment: "200k",
       bio: "Data science expert",
@@ -23,7 +23,7 @@ const TopContributors = () => {
     },
     {
       name: "Lisa Thompson",
-      potion: "3rd",
+
       like: "100k",
       comment: "20k",
       bio: "Creative writer & editor",
@@ -32,7 +32,7 @@ const TopContributors = () => {
     },
     {
       name: "David Kim",
-      potion: "4th",
+
       like: "200k",
       comment: "200k",
       bio: "Frontend developer & designer",
@@ -64,7 +64,7 @@ const TopContributors = () => {
               <span
                 className={`inline-block px-4 py-1 text-md font-medium bg-teal-100 dark:bg-teal-900 text-teal-700 dark:text-teal-300 rounded-full mb-4`}
               >
-                {contributor.potion} 👑
+                👑
               </span>
 
               {/* Profile Image */}
