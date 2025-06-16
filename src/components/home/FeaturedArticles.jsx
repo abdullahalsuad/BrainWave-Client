@@ -46,7 +46,7 @@ const FeaturedArticles = () => {
 
         <div className="text-center mt-12">
           <Link
-            to="/articles"
+            to="/all-articles"
             className="inline-flex items-center text-teal-600 dark:text-teal-400 hover:text-teal-800 dark:hover:text-teal-300 font-medium transition-colors"
           >
             View All Articles →

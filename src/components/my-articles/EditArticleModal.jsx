@@ -6,7 +6,6 @@ import { toast } from "react-toastify";
 const EditArticleModal = ({ article, onClose, handleSave }) => {
   const [tags, setTags] = useState(article.articleTags || []);
   const [newTag, setNewTag] = useState("");
-  console.log(article);
 
   const handleAddTag = () => {
     if (!newTag.trim()) return toast.warning("Empty tag");

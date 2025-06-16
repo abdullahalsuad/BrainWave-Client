@@ -37,8 +37,9 @@ const MyArticlesPage = () => {
       if (result.isConfirmed) {
         try {
           const response = await axiosSecure.delete(`/my-articles/${id}`);
+          console.log(response);
 
-          if (response.statusText === "OK") {
+          if (response.status === 200) {
             toast.success("Article deleted successfully");
 
             // ui update
