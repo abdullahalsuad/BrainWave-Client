@@ -1,7 +1,7 @@
 import { createBrowserRouter } from "react-router";
 import App from "../App";
 import Home from "../pages/Home";
-import Login from "../pages/login/LoginPage";
+import LoginPage from "../pages/login/LoginPage";
 import AllArticlesPage from "../pages/allArticles/AllArticlesPage";
 import PostArticlePage from "../pages/postArticle/PostArticlePage";
 import MyArticlesPage from "../pages/myArticles/MyArticlesPage";
@@ -12,6 +12,7 @@ import NotFound from "../pages/NotFound";
 import PrivateRoute from "./PrivateRoute";
 import AuthLayout from "../components/authentication/AuthLayout";
 import CategoriesArticlesPage from "../pages/categories-articles/CategoriesArticlesPage";
+import AuthPage from "../pages/AuthPage";
 
 const router = createBrowserRouter([
   {
@@ -60,21 +61,36 @@ const router = createBrowserRouter([
         path: "/about-us",
         element: <AboutUsPage />,
       },
+      // {
+      //   path: "/login",
+      //   element: (
+      //     <AuthLayout>
+      //       <LoginPage />
+      //     </AuthLayout>
+      //   ),
+      // },
+      // {
+      //   path: "/register",
+      //   element: (
+      //     <AuthLayout>
+      //       <RegisterPage />
+      //     </AuthLayout>
+      //   ),
+      // },
+    ],
+  },
+
+  {
+    path: "/authpage",
+    element: <AuthPage />,
+    children: [
       {
-        path: "/login",
-        element: (
-          <AuthLayout>
-            <Login />
-          </AuthLayout>
-        ),
+        index: true,
+        element: <LoginPage />,
       },
       {
-        path: "/register",
-        element: (
-          <AuthLayout>
-            <RegisterPage />
-          </AuthLayout>
-        ),
+        path: "/authpage/register",
+        element: <RegisterPage />,
       },
     ],
   },

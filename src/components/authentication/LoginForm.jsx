@@ -1,6 +1,6 @@
 import { Link } from "react-router";
 import { FiMail, FiLock } from "react-icons/fi";
-import { FaGoogle, FaRegEyeSlash } from "react-icons/fa";
+import { FaGoogle, FaLongArrowAltLeft, FaRegEyeSlash } from "react-icons/fa";
 import { FcGoogle } from "react-icons/fc";
 import { LuEye } from "react-icons/lu";
 
@@ -14,7 +14,7 @@ const LoginForm = ({
 }) => {
   return (
     <>
-      <div className="flex items-center justify-center my-20 py-12 px-4 sm:px-6 lg:px-8">
+      <div className="flex items-center justify-center mt-20 py-12 px-4 sm:px-6 lg:px-8">
         <div className="w-full max-w-md space-y-8 bg-white dark:bg-gray-800 p-6 sm:p-10 rounded-xl shadow-md">
           <div className="text-center">
             <h2 className="mt-6 text-3xl font-extrabold text-gray-900 dark:text-white mb-4">
@@ -23,7 +23,7 @@ const LoginForm = ({
             <p className="mt-2 text-sm text-gray-600 dark:text-gray-300">
               Don't have an account?{" "}
               <Link
-                to="/register"
+                to="/authpage/register"
                 className="text-indigo-600 hover:text-purple-400 font-medium dark:text-purple-400 dark:hover:text-indigo-300"
               >
                 Create an account
@@ -159,6 +159,17 @@ const LoginForm = ({
             </div>
           </form>
         </div>
+      </div>
+
+      {/* home */}
+      <div className="flex justify-center mt-4">
+        <Link
+          className="flex items-center gap-3 px-5 py-3 rounded-md bg-gradient-to-r from-teal-600 to-teal-400 text-white font-medium shadow-lg hover:from-teal-500 hover:to-teal-300 hover:scale-105 transition-transform duration-300 ease-in-out"
+          to="/"
+        >
+          <FaLongArrowAltLeft size={24} />
+          <span className="text-md">Visit Home Page</span>
+        </Link>
       </div>
     </>
   );

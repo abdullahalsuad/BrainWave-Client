@@ -101,7 +101,7 @@ const AboutUsPage = () => {
         </p>
         <div className="flex flex-col sm:flex-row gap-4 justify-center">
           <Link
-            to="/register"
+            to="/authpage/register"
             className="flex items-center justify-center gap-2 px-6 py-3 bg-teal-600 hover:bg-teal-700 text-white rounded-lg font-medium transition-all duration-300 shadow-md"
           >
             <Users className="h-5 w-5" />
@@ -247,7 +247,7 @@ const AboutUsPage = () => {
         </p>
         <div className="flex flex-col sm:flex-row gap-4 justify-center">
           <Link
-            to="/register"
+            to="/authpage/register"
             className="px-6 py-3 bg-teal-600 hover:bg-teal-700 text-white rounded-lg font-medium transition-all duration-300 shadow-md"
           >
             Get Started Today
@@ -260,6 +260,8 @@ const AboutUsPage = () => {
           </Link>
         </div>
       </div>
+
+      
     </div>
   );
 };

@@ -11,7 +11,7 @@ const PrivateRoute = ({ children }) => {
   if (loading) return <LoadingSpinner />;
 
   if (!user) {
-    return <Navigate state={location.pathname} to="/login"></Navigate>;
+    return <Navigate state={location.pathname} to="/authpage"></Navigate>;
   }
   return children;
 };

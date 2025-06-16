@@ -147,13 +147,13 @@ const Navbar = () => {
               ) : (
                 <>
                   <Link
-                    to="/login"
+                    to="/authpage"
                     className="px-5 py-2.5 text-sm font-medium text-black dark:text-white bg-white dark:bg-gray-800 border border-gray-700 dark:border-gray-600 rounded-md hover:bg-teal-70 dark:hover:bg-gray-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-teal-700 dark:focus:ring-teal-500 transition mr-4 cursor-pointer"
                   >
                     Login
                   </Link>
                   <Link
-                    to="/register"
+                    to="/authpage/register"
                     className="px-5 py-2.5 text-sm font-medium text-white bg-gray-700 dark:bg-teal-600 border border-transparent rounded-md hover:bg-gray-800 dark:hover:bg-teal-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-teal-700 dark:focus:ring-teal-500 transition cursor-pointer"
                   >
                     Register
@@ -389,14 +389,14 @@ const Navbar = () => {
               ) : (
                 <div className="my-4">
                   <Link
-                    to="/login"
+                    to="/authpage"
                     className="px-5 py-2.5 text-sm font-medium text-black dark:text-white bg-white dark:bg-gray-700 border border-gray-700 dark:border-gray-600 rounded-md hover:bg-teal-70 dark:hover:bg-gray-600 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-teal-700 dark:focus:ring-teal-500 transition mr-4 w-full text-center"
                     onClick={handleLinkClick}
                   >
                     Login
                   </Link>
                   <Link
-                    to="/register"
+                    to="/authpage/register"
                     className="px-5 py-2.5 text-sm font-medium text-white bg-gray-700 dark:bg-teal-600 border border-transparent rounded-md hover:bg-gray-800 dark:hover:bg-teal-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-teal-700 dark:focus:ring-teal-500 transition w-full text-center"
                     onClick={handleLinkClick}
                   >

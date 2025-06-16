@@ -12,6 +12,11 @@ const CategoriesArticlesPage = () => {
 
   const axiosSecure = useAxiosSecure();
 
+  // scroll to top
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
+
   useEffect(() => {
     const fetchCategoryArticles = async () => {
       try {
