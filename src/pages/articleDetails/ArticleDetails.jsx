@@ -27,6 +27,7 @@ const ArticleDetails = () => {
         setSingleArticle(articleData);
         setLoading(false);
       } catch (err) {
+        setLoading(false);
         console.log("failed to load article", err);
       }
     };

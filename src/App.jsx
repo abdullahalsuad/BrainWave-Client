@@ -5,6 +5,8 @@ import Footer from "./pages/shared/Footer";
 import { ToastContainer } from "react-toastify";
 
 function App() {
+  console.log(import.meta.env.DEV);
+
   return (
     <>
       <div className="min-h-screen ">
