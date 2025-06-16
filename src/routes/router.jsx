@@ -11,6 +11,7 @@ import ArticleDetails from "../pages/articleDetails/ArticleDetails";
 import NotFound from "../pages/NotFound";
 import PrivateRoute from "./PrivateRoute";
 import AuthLayout from "../components/authentication/AuthLayout";
+import CategoriesArticlesPage from "../pages/categories-articles/CategoriesArticlesPage";
 
 const router = createBrowserRouter([
   {
@@ -26,6 +27,10 @@ const router = createBrowserRouter([
       {
         path: "/all-articles",
         element: <AllArticlesPage />,
+      },
+      {
+        path: "/category/:slug",
+        element: <CategoriesArticlesPage />,
       },
       {
         path: "/all-articles/:id",
