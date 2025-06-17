@@ -13,7 +13,7 @@ const PostArticlePage = () => {
   const axiosSecure = useAxiosSecure();
 
   const { user } = use(AuthContext);
-  const { setAllArticles, setMyArticles } = use(ArticleContext);
+  const { setAllArticles } = use(ArticleContext);
 
   const displayName = user?.displayName;
   const creatorEmail = user?.email;
@@ -54,7 +54,6 @@ const PostArticlePage = () => {
     const form = e.target;
     const formData = new FormData(form);
     const formValues = Object.fromEntries(formData.entries());
-    
 
     const articleData = {
       ...formValues,
@@ -75,11 +74,11 @@ const PostArticlePage = () => {
         // UI update
         e.target.reset();
         setAllArticles((prev) => [...prev, response.data]);
-        setMyArticles((prev) => [...prev, response.data]);
         setTags([]);
         setIsLoading(false);
       }
     } catch (err) {
+      setIsLoading(false);
       console.log("Error from sending data to the server", err);
     }
   };
