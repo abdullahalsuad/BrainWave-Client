@@ -3,6 +3,8 @@ import { Link } from "react-router";
 import useAxiosSecure from "../../hooks/useAxiosSecure";
 import FeaturedArticlesCard from "./FeaturedArticlesCard";
 import FeaturedArticlesCardSkeleton from "../loading/FeaturedArticlesCardSkeleton";
+import { MdDoNotDisturb } from "react-icons/md";
+import { FaLongArrowAltLeft } from "react-icons/fa";
 
 const FeaturedArticles = () => {
   const [recentArticles, setRecentArticles] = useState([]);
@@ -44,7 +46,7 @@ const FeaturedArticles = () => {
 
         {/* featured cards */}
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-          {isLoading && (
+          {isLoading ? (
             <>
               <FeaturedArticlesCardSkeleton />
               <FeaturedArticlesCardSkeleton />
@@ -53,11 +55,22 @@ const FeaturedArticles = () => {
               <FeaturedArticlesCardSkeleton />
               <FeaturedArticlesCardSkeleton />
             </>
+          ) : recentArticles.length > 0 ? (
+            recentArticles.map((article) => (
+              <FeaturedArticlesCard article={article} key={article._id} />
+            ))
+          ) : (
+            <div className="col-span-full flex flex-col items-center justify-center text-center py-16 px-4 bg-gray-300 dark:bg-gray-800 rounded-lg ">
+              {/* Message */}
+              <h2 className="text-xl font-semibold dark:text-gray-200 mb-2">
+                No Featured Articles Found
+              </h2>
+              <p className="dark:text-gray-100 mb-6">
+                We couldn't find any articles in this category. Try checking
+                back later or explore all our articles.
+              </p>
+            </div>
           )}
-
-          {recentArticles.map((article) => (
-            <FeaturedArticlesCard article={article} key={article._id} />
-          ))}
         </div>
 
         <div className="text-center mt-12">

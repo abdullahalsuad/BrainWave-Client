@@ -4,7 +4,6 @@ import { FaCheckSquare } from "react-icons/fa";
 const SearchBarAndFilters = ({ selectedCategory, setSelectedCategory }) => {
   const [isCategoryDropdownOpen, setIsCategoryDropdownOpen] = useState(false);
 
-
   const [isSortDropdownOpen, setIsSortDropdownOpen] = useState(false);
   const [selectedSort, setSelectedSort] = useState("newest");
 
@@ -28,7 +27,7 @@ const SearchBarAndFilters = ({ selectedCategory, setSelectedCategory }) => {
   ];
 
   return (
-    <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div className="lg:w-8/12 mx-auto px-4 sm:px-6 lg:px-8">
       <div className="flex flex-col bg-white dark:bg-gray-800 rounded-lg shadow-md p-4 mb-8 space-y-4">
         {/* Search Input */}
         <div className="w-full">

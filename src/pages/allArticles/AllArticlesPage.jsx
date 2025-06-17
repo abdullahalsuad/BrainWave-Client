@@ -39,7 +39,7 @@ const AllArticlesPage = () => {
       mt-30 mb-70"
       >
         {/* Header */}
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="lg:w-8/12 mx-auto px-4 sm:px-6 lg:px-8">
           <h1 className="text-4xl font-bold text-center text-gray-900 dark:text-white mb-4">
             All Articles
           </h1>
@@ -56,42 +56,32 @@ const AllArticlesPage = () => {
         />
 
         {/* Main Content */}
-        <div className="lg:max-w-7xl  mx-auto px-4 sm:px-6 lg:px-8 grid grid-cols-1  gap-6">
-          {allArticles.length === 0 && (
+        <div className="lg:w-8/12  mx-auto px-4 sm:px-6 lg:px-8 grid grid-cols-1  gap-6">
+          {loading ? (
             <>
-              <div className="col-span-full flex flex-col items-center justify-center text-center py-16 px-4 bg-gray-100 dark:bg-gray-600 rounded-lg ">
-                {/* Icon or illustration */}
-
-                {/* Message */}
-                <h2 className="text-xl font-semibold text-gray-700 dark:text-gray-200 mb-2">
-                  No Articles Found
-                </h2>
-                <p className="text-gray-500 dark:text-gray-200 mb-6">
-                  We couldn't find any articles in this category. Try checking
-                  back later or explore all our articles.
-                </p>
-              </div>
+              <AllArticleCardSkeleton />
+              <AllArticleCardSkeleton />
+              <AllArticleCardSkeleton />
+              <AllArticleCardSkeleton />
+              <AllArticleCardSkeleton />
             </>
+          ) : allArticles.length > 0 ? (
+            <div className="col-span-2 md:col-span-2">
+              {[...allArticles].reverse().map((article) => (
+                <ArticleCards article={article} key={article._id} />
+              ))}
+            </div>
+          ) : (
+            <div className="col-span-full flex flex-col items-center justify-center text-center py-16 px-4 bg-gray-100 dark:bg-gray-800 rounded-lg">
+              <h2 className="text-xl font-semibold text-gray-700 dark:text-gray-200 mb-2">
+                No Articles Found
+              </h2>
+              <p className="text-gray-500 dark:text-gray-200 mb-6">
+                We couldn't find any articles in this category. Try checking
+                back later or explore all our articles.
+              </p>
+            </div>
           )}
-
-          {/* Article Cards */}
-          <div className="col-span-2 md:col-span-2">
-            {loading ? (
-              <>
-                <AllArticleCardSkeleton />
-                <AllArticleCardSkeleton />
-                <AllArticleCardSkeleton />
-                <AllArticleCardSkeleton />
-                <AllArticleCardSkeleton />
-              </>
-            ) : (
-              [...allArticles]
-                .reverse()
-                .map((article) => (
-                  <ArticleCards article={article} key={article._id} />
-                ))
-            )}
-          </div>
 
           {/* Sidebar */}
         </div>

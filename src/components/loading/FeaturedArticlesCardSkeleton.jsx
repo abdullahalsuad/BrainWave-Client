@@ -2,7 +2,7 @@ const FeaturedArticlesCardSkeleton = () => {
   return (
     <div className="bg-white dark:bg-gray-800 rounded-xl shadow-md overflow-hidden transition-all duration-300 flex flex-col h-full animate-pulse">
       {/* Image Placeholder */}
-      <div className="w-full h-48 bg-gray-300 dark:bg-gray-700"></div>
+      <div className="w-full h-48 bg-gray-300 dark:bg-gray-500"></div>
 
       <div className="p-6 my-4 flex-1 flex flex-col">
         {/* Category Badge */}

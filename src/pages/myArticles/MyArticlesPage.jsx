@@ -14,7 +14,7 @@ import { AuthContext } from "../../context/AuthProvider";
 const MyArticlesPage = () => {
   const [editingArticle, setEditingArticle] = useState(null);
   const [myArticles, setMyArticles] = useState([]);
-  const [isLoading, setIsLoading] = useState(false);
+  const [isLoading, setIsLoading] = useState(true);
 
   const { user } = use(AuthContext);
   const email = user?.email;
@@ -27,7 +27,6 @@ const MyArticlesPage = () => {
   }, []);
 
   useEffect(() => {
-    setIsLoading(true);
     const fetchDataByEmail = async () => {
       if (email) {
         try {
@@ -126,16 +125,14 @@ const MyArticlesPage = () => {
       {/* Stats Cards */}
       <StatsCards />
 
-      {isLoading && (
+      {isLoading ? (
         <div className="space-y-6">
           <ArticleCardSkeleton />
           <ArticleCardSkeleton />
           <ArticleCardSkeleton />
           <ArticleCardSkeleton />
         </div>
-      )}
-
-      {myArticles.length > 0 ? (
+      ) : myArticles.length > 0 ? (
         <div className="space-y-6">
           {[...myArticles].reverse().map((article) => (
             <SingleArticlesCard

@@ -9,7 +9,7 @@ import FeaturedArticlesCardSkeleton from "../../components/loading/FeaturedArtic
 
 const CategoriesArticlesPage = () => {
   const [categoryArticles, setCategoryArticles] = useState([]);
-  const [isLoading, setIsLoading] = useState(false);
+  const [isLoading, setIsLoading] = useState(true);
   const { slug } = useParams();
 
   const axiosSecure = useAxiosSecure();
@@ -21,7 +21,6 @@ const CategoriesArticlesPage = () => {
 
   // fetch articles by category
   useEffect(() => {
-    setIsLoading(true);
     const fetchCategoryArticles = async () => {
       try {
         const response = await axiosSecure.get(`/articles/Category/${slug}`);
@@ -51,7 +50,7 @@ const CategoriesArticlesPage = () => {
               of passionate learners.
             </p>
           </div>
-          {isLoading && (
+          {isLoading ? (
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
               <FeaturedArticlesCardSkeleton />
               <FeaturedArticlesCardSkeleton />
@@ -60,37 +59,36 @@ const CategoriesArticlesPage = () => {
               <FeaturedArticlesCardSkeleton />
               <FeaturedArticlesCardSkeleton />
             </div>
-          )}
-          {/* featured cards */}
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-            {categoryArticles.length > 0 ? (
-              categoryArticles.map((article) => (
+          ) : categoryArticles.length > 0 ? (
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+              {/* featured cards */}
+              {categoryArticles.map((article) => (
                 <FeaturedArticlesCard article={article} key={article._id} />
-              ))
-            ) : (
-              <div className="col-span-full flex flex-col items-center justify-center text-center py-16 px-4 bg-gray-100 dark:bg-gray-700 rounded-lg ">
-                {/* Icon or illustration */}
-                <MdDoNotDisturb size={30} className="my-4" />
+              ))}
+            </div>
+          ) : (
+            <div className="col-span-full flex flex-col items-center justify-center text-center py-16 px-4 bg-gray-300 dark:bg-gray-800 rounded-lg ">
+              {/* Icon or illustration */}
+              <MdDoNotDisturb size={30} className="my-4" />
 
-                {/* Message */}
-                <h2 className="text-xl font-semibold text-gray-700 mb-2">
-                  No Articles Found
-                </h2>
-                <p className="text-gray-500 mb-6">
-                  We couldn't find any articles in this category. Try checking
-                  back later or explore all our articles.
-                </p>
+              {/* Message */}
+              <h2 className="text-xl font-semibold dark:text-gray-200 mb-2">
+                No Articles Found
+              </h2>
+              <p className="dark:text-gray-100 mb-6">
+                We couldn't find any articles in this category. Try checking
+                back later or explore all our articles.
+              </p>
 
-                {/* CTA Button */}
-                <Link
-                  to={"/all-articles"}
-                  className="  px-6 py-3 bg-teal-600 text-white font-medium rounded-md hover:bg-teal-700 transition flex items-center gap-4"
-                >
-                  <FaLongArrowAltLeft /> Browse All Articles
-                </Link>
-              </div>
-            )}
-          </div>
+              {/* CTA Button */}
+              <Link
+                to={"/all-articles"}
+                className="  px-6 py-3 bg-teal-600 text-white font-medium rounded-md hover:bg-teal-700 transition flex items-center gap-4"
+              >
+                <FaLongArrowAltLeft /> Browse All Articles
+              </Link>
+            </div>
+          )}
         </div>
       </section>
     </>

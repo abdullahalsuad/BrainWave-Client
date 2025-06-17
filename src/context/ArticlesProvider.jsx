@@ -22,6 +22,7 @@ const ArticlesProvider = ({ children }) => {
         setAllArticles(articlesData);
         setLoading(false);
       } catch (err) {
+        setLoading(false);
         console.log("Failed to fetch all articles ", err);
       }
     };
