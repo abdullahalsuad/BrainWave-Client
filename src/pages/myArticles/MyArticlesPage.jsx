@@ -9,18 +9,41 @@ import useAxiosSecure from "../../hooks/useAxiosSecure";
 import { toast } from "react-toastify";
 import Swal from "sweetalert2";
 import EditArticleModal from "../../components/my-articles/EditArticleModal";
+import { AuthContext } from "../../context/AuthProvider";
 
 const MyArticlesPage = () => {
   const [editingArticle, setEditingArticle] = useState(null);
-  const axiosSecure = useAxiosSecure();
+  const [myArticles, setMyArticles] = useState([]);
+  const [isLoading, setIsLoading] = useState(false);
 
-  const { myArticles, loading, setAllArticles, setMyArticles } =
-    use(ArticleContext);
+  const { user } = use(AuthContext);
+  const email = user?.email;
+  const axiosSecure = useAxiosSecure();
+  const { setAllArticles } = use(ArticleContext);
 
   // scroll to top
   useEffect(() => {
     window.scrollTo(0, 0);
   }, []);
+
+  useEffect(() => {
+    setIsLoading(true);
+    const fetchDataByEmail = async () => {
+      if (email) {
+        try {
+          const response = await axiosSecure.get(`/my-articles/${email}`);
+          const myArticlesData = response.data;
+          setMyArticles(myArticlesData);
+          setIsLoading(false);
+        } catch (err) {
+          setIsLoading(false);
+          console.log("Failed to fetch all articles ", err);
+        }
+      }
+    };
+    fetchDataByEmail();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [email]);
 
   // handling delete articles
   const handleRemove = (id) => {
@@ -62,6 +85,7 @@ const MyArticlesPage = () => {
     setEditingArticle(article);
   };
 
+  //handle save
   const handleSave = async (id, e, tags) => {
     e.preventDefault();
 
@@ -102,14 +126,16 @@ const MyArticlesPage = () => {
       {/* Stats Cards */}
       <StatsCards />
 
-      {loading ? (
+      {isLoading && (
         <div className="space-y-6">
           <ArticleCardSkeleton />
           <ArticleCardSkeleton />
           <ArticleCardSkeleton />
           <ArticleCardSkeleton />
         </div>
-      ) : myArticles.length > 0 ? (
+      )}
+
+      {myArticles.length > 0 ? (
         <div className="space-y-6">
           {[...myArticles].reverse().map((article) => (
             <SingleArticlesCard
@@ -119,10 +145,6 @@ const MyArticlesPage = () => {
               handleEdit={handleEdit}
             />
           ))}
-          {/* {myArticles.map((article) => (
-            // single card
-            
-          ))} */}
         </div>
       ) : (
         <NoArticlesFound />

@@ -2,20 +2,25 @@ import { useEffect, useState } from "react";
 import { Link } from "react-router";
 import useAxiosSecure from "../../hooks/useAxiosSecure";
 import FeaturedArticlesCard from "./FeaturedArticlesCard";
+import FeaturedArticlesCardSkeleton from "../loading/FeaturedArticlesCardSkeleton";
 
 const FeaturedArticles = () => {
   const [recentArticles, setRecentArticles] = useState([]);
+  const [isLoading, setIsLoading] = useState(false);
 
   const axiosSecure = useAxiosSecure();
 
   useEffect(() => {
+    setIsLoading(true);
     const fetchRecentArticles = async () => {
       try {
         const response = await axiosSecure.get("/articles/recent-articles");
         const recentArticles = await response.data;
 
         setRecentArticles(recentArticles);
+        setIsLoading(false);
       } catch (err) {
+        setIsLoading(false);
         console.log("Failed to load ", err);
       }
     };
@@ -39,6 +44,17 @@ const FeaturedArticles = () => {
 
         {/* featured cards */}
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+          {isLoading && (
+            <>
+              <FeaturedArticlesCardSkeleton />
+              <FeaturedArticlesCardSkeleton />
+              <FeaturedArticlesCardSkeleton />
+              <FeaturedArticlesCardSkeleton />
+              <FeaturedArticlesCardSkeleton />
+              <FeaturedArticlesCardSkeleton />
+            </>
+          )}
+
           {recentArticles.map((article) => (
             <FeaturedArticlesCard article={article} key={article._id} />
           ))}

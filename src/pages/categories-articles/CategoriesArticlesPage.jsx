@@ -4,11 +4,13 @@ import useAxiosSecure from "../../hooks/useAxiosSecure";
 import FeaturedArticlesCard from "../../components/home/FeaturedArticlesCard";
 import { MdDoNotDisturb } from "react-icons/md";
 import { FaLongArrowAltLeft } from "react-icons/fa";
+import LoadingSpinner from "../../components/loading/LoadingSpinner";
+import FeaturedArticlesCardSkeleton from "../../components/loading/FeaturedArticlesCardSkeleton";
 
 const CategoriesArticlesPage = () => {
   const [categoryArticles, setCategoryArticles] = useState([]);
+  const [isLoading, setIsLoading] = useState(false);
   const { slug } = useParams();
-  console.log(slug);
 
   const axiosSecure = useAxiosSecure();
 
@@ -17,16 +19,18 @@ const CategoriesArticlesPage = () => {
     window.scrollTo(0, 0);
   }, []);
 
+  // fetch articles by category
   useEffect(() => {
+    setIsLoading(true);
     const fetchCategoryArticles = async () => {
       try {
         const response = await axiosSecure.get(`/articles/Category/${slug}`);
         const categoryArticles = await response.data;
-        console.log(categoryArticles);
-
         setCategoryArticles(categoryArticles);
+        setIsLoading(false);
       } catch (err) {
         console.log("Failed to load ", err);
+        setIsLoading(false);
       }
     };
     fetchCategoryArticles();
@@ -47,7 +51,16 @@ const CategoriesArticlesPage = () => {
               of passionate learners.
             </p>
           </div>
-
+          {isLoading && (
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+              <FeaturedArticlesCardSkeleton />
+              <FeaturedArticlesCardSkeleton />
+              <FeaturedArticlesCardSkeleton />
+              <FeaturedArticlesCardSkeleton />
+              <FeaturedArticlesCardSkeleton />
+              <FeaturedArticlesCardSkeleton />
+            </div>
+          )}
           {/* featured cards */}
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
             {categoryArticles.length > 0 ? (
