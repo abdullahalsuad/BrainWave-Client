@@ -12,7 +12,7 @@
 
 ---
 
-> **Brain Wave** is a next-gen knowledge-sharing platform for students and tech enthusiasts. Publish articles, explore trending topics, connect with top contributors, and grow your academic network—all in a beautiful, fast, and responsive app.
+**Brain Wave** is a next-gen knowledge-sharing platform for students and tech enthusiasts. Publish articles, explore trending topics, connect with top contributors, and grow your academic network—all in a beautiful, fast, and responsive app.
 
 ---
 
@@ -49,6 +49,49 @@
 
 ---
 
+## 📦 Key Dependencies
+
+- **react**
+- **react-router**
+- **tailwindcss**
+- **firebase**
+- **aos**
+- **swiper**
+- **react-toastify**
+- **lucide-react**
+- **eslint**
+- **typescript**
+
+See [`package.json`](./package.json) for the full list.
+
+---
+
+## ▶️ Getting Started
+
+1. **Clone the repository:**
+   ```sh
+   git clone https://github.com/your-username/brainwave-client.git
+   cd BrainWave-Client
+   ```
+
+2. **Install dependencies:**
+   ```sh
+   npm install
+   ```
+
+3. **Set up environment variables:**
+   - Copy `.env.example` to `.env.local` and fill in your Firebase and API keys.
+
+4. **Run the development server:**
+   ```sh
+   npm run dev
+   ```
+
+5. **Open in browser:**
+   - Visit [http://localhost:5173](http://localhost:5173)
+
+---
+
 ## 📂 Project Structure
 
 ```
@@ -67,6 +110,13 @@ index.html
 vite.config.js
 package.json
 ```
+
+---
+
+## 🌐 Live Demo
+
+- [Live Site](https://your-live-site-url.vercel.app)
+- [Frontend Repository](https://github.com/your-username/brainwave-client)
 
 ---
 
