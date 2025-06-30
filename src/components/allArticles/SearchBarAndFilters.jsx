@@ -1,11 +1,17 @@
 import React, { useState } from "react";
 import { FaCheckSquare } from "react-icons/fa";
 
-const SearchBarAndFilters = ({ selectedCategory, setSelectedCategory }) => {
+const SearchBarAndFilters = ({
+  selectedCategory,
+  setSelectedCategory,
+  searchQuery,
+  setSearchQuery,
+  selectedSort,
+  setSelectedSort,
+}) => {
   const [isCategoryDropdownOpen, setIsCategoryDropdownOpen] = useState(false);
 
   const [isSortDropdownOpen, setIsSortDropdownOpen] = useState(false);
-  const [selectedSort, setSelectedSort] = useState("newest");
 
   const categories = [
     { label: "All Categories", value: "all" },
@@ -23,7 +29,6 @@ const SearchBarAndFilters = ({ selectedCategory, setSelectedCategory }) => {
   const sortOptions = [
     { label: "Newest First", value: "newest" },
     { label: "Oldest First", value: "oldest" },
-    { label: "Most Popular", value: "popular" },
   ];
 
   return (
@@ -34,6 +39,8 @@ const SearchBarAndFilters = ({ selectedCategory, setSelectedCategory }) => {
           <input
             type="text"
             placeholder="Search articles..."
+            value={searchQuery}
+            onChange={(e) => setSearchQuery(e.target.value)}
             className="w-full px-4 py-2 border border-gray-300 dark:border-gray-600 rounded-lg focus:outline-none focus:ring-2 focus:ring-teal-400 dark:focus:ring-teal-600"
           />
         </div>

@@ -6,6 +6,7 @@ import {
   FiGithub,
   FiMail,
 } from "react-icons/fi";
+import { Link } from "react-router";
 
 const Footer = () => {
   return (
@@ -45,28 +46,38 @@ const Footer = () => {
             <h4 className="text-lg font-semibold mb-4">Quick Links</h4>
             <ul className="space-y-2 text-gray-300 dark:text-gray-400">
               <li>
-                <a href="#" className="hover:text-teal-400 transition">
+                <Link to={"/"} className="hover:text-teal-400 transition">
                   Home
-                </a>
+                </Link>
               </li>
               <li>
-                <a href="#" className="hover:text-teal-400 transition">
-                  Contact Us
-                </a>
+                <Link
+                  to={"/all-articles"}
+                  className="hover:text-teal-400 transition"
+                >
+                  All Articles
+                </Link>
+              </li>
+
+              <li>
+                <Link
+                  to={"/post-article"}
+                  className="hover:text-teal-400 transition"
+                >
+                  Post Article
+                </Link>
+              </li>
+              <li>
+                <Link
+                  to={"/about-us"}
+                  className="hover:text-teal-400 transition"
+                >
+                  About Us
+                </Link>
               </li>
               <li>
                 <a href="#" className="hover:text-teal-400 transition">
                   Terms & Conditions
-                </a>
-              </li>
-              <li>
-                <a href="#" className="hover:text-teal-400 transition">
-                  Post Article
-                </a>
-              </li>
-              <li>
-                <a href="#" className="hover:text-teal-400 transition">
-                  Team
                 </a>
               </li>
             </ul>

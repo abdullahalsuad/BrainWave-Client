@@ -7,37 +7,78 @@ import useAxiosSecure from "../../hooks/useAxiosSecure";
 
 const AllArticlesPage = () => {
   const [selectedCategory, setSelectedCategory] = useState("all");
+  const [searchQuery, setSearchQuery] = useState("");
+  const [selectedSort, setSelectedSort] = useState("newest");
 
   const axiosSecure = useAxiosSecure();
   const { allArticles, setAllArticles, loading } = use(ArticleContext);
 
-  // scroll to top
+  // Scroll to top on mount
   useEffect(() => {
     window.scrollTo(0, 0);
   }, []);
 
-  // sort by category
+  // Fetch articles based on category
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await axiosSecure.get(
-          `/articles/Category/${selectedCategory}`
-        );
-        const categoryArticles = await response.data;
-        setAllArticles(categoryArticles);
+        let url = "/articles";
+
+        if (selectedCategory !== "all") {
+          url = `/articles/Category/${selectedCategory}`;
+        }
+
+        const response = await axiosSecure.get(url);
+        setAllArticles(response.data);
       } catch (err) {
-        console.log("Failed to load ", err);
+        console.error("Failed to load articles:", err);
       }
     };
+
     fetchData();
-    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [selectedCategory]);
+
+  // Filter and sort articles
+  const getFilteredAndSortedArticles = () => {
+    if (!Array.isArray(allArticles)) return [];
+
+    let filtered = [...allArticles];
+
+    // Search filter
+    if (searchQuery.trim()) {
+      const query = searchQuery.toLowerCase();
+      filtered = filtered.filter(
+        (article) =>
+          article.articleTitle?.toLowerCase().includes(query) ||
+          article.articleContent?.toLowerCase().includes(query) ||
+          article.articleCategory?.toLowerCase().includes(query)
+      );
+    }
+
+    // Sort
+    switch (selectedSort) {
+      case "newest":
+        return filtered.sort(
+          (a, b) =>
+            new Date(b.createdAt).getTime() - new Date(a.createdAt).getTime()
+        );
+      case "oldest":
+        return filtered.sort(
+          (a, b) =>
+            new Date(a.createdAt).getTime() - new Date(b.createdAt).getTime()
+        );
+      case "popular":
+        return filtered.sort((a, b) => b.likes.length - a.likes.length);
+      default:
+        return filtered;
+    }
+  };
+
+  const filteredArticles = getFilteredAndSortedArticles();
+
   return (
     <>
-      <div
-        className=" min-h-screen lg:p-6
-      mt-30 mb-70"
-      >
+      <div className="min-h-screen lg:p-6 mt-30 mb-70">
         {/* Header */}
         <div className="lg:w-8/12 mx-auto px-4 sm:px-6 lg:px-8">
           <h1 className="text-4xl font-bold text-center text-gray-900 dark:text-white mb-4">
@@ -53,21 +94,21 @@ const AllArticlesPage = () => {
         <SearchBarAndFilters
           selectedCategory={selectedCategory}
           setSelectedCategory={setSelectedCategory}
+          searchQuery={searchQuery}
+          setSearchQuery={setSearchQuery}
+          selectedSort={selectedSort}
+          setSelectedSort={setSelectedSort}
         />
 
         {/* Main Content */}
-        <div className="lg:w-8/12  mx-auto px-4 sm:px-6 lg:px-8 grid grid-cols-1  gap-6">
+        <div className="lg:w-8/12 mx-auto px-4 sm:px-6 lg:px-8 grid grid-cols-1 gap-6">
           {loading ? (
-            <>
-              <AllArticleCardSkeleton />
-              <AllArticleCardSkeleton />
-              <AllArticleCardSkeleton />
-              <AllArticleCardSkeleton />
-              <AllArticleCardSkeleton />
-            </>
-          ) : allArticles.length > 0 ? (
+            Array.from({ length: 5 }).map((_, idx) => (
+              <AllArticleCardSkeleton key={idx} />
+            ))
+          ) : filteredArticles.length > 0 ? (
             <div className="col-span-2 md:col-span-2">
-              {[...allArticles].reverse().map((article) => (
+              {filteredArticles.map((article) => (
                 <ArticleCards article={article} key={article._id} />
               ))}
             </div>
@@ -76,14 +117,11 @@ const AllArticlesPage = () => {
               <h2 className="text-xl font-semibold text-gray-700 dark:text-gray-200 mb-2">
                 No Articles Found
               </h2>
-              <p className="text-gray-500 dark:text-gray-200 mb-6">
-                We couldn't find any articles in this category. Try checking
-                back later or explore all our articles.
+              <p className="text-gray-500 dark:text-gray-200">
+                Try adjusting your filters or search terms.
               </p>
             </div>
           )}
-
-          {/* Sidebar */}
         </div>
       </div>
     </>
